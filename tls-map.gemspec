@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description   = 'CLI & library for mapping TLS cipher algorithm names: IANA, OpenSSL, GnuTLS, NSS'
   s.authors       = ['Alexandre ZANNI']
   s.email         = 'alexandre.zanni@engineer.com'
-  s.homepage      = 'https://sec-it.github.io/tls-map/'
+  s.homepage      = 'https://noraj.github.io/tls-map/'
   s.license       = 'MIT'
 
   s.files         = Dir['bin/*'] + Dir['lib/**/*.rb'] + Dir['data/*'] + ['LICENSE']
@@ -20,11 +20,11 @@ Gem::Specification.new do |s|
 
   s.metadata = {
     'yard.run'          => 'yard',
-    'bug_tracker_uri'   => 'https://github.com/sec-it/tls-map/issues',
-    'changelog_uri'     => 'https://github.com/sec-it/tls-map/blob/master/docs/CHANGELOG.md',
-    'documentation_uri' => 'https://sec-it.github.io/tls-map/yard/',
-    'homepage_uri'      => 'https://sec-it.github.io/tls-map/',
-    'source_code_uri'   => 'https://github.com/sec-it/tls-map/'
+    'bug_tracker_uri'   => 'https://github.com/noraj/tls-map/issues',
+    'changelog_uri'     => 'https://github.com/noraj/tls-map/blob/master/docs/CHANGELOG.md',
+    'documentation_uri' => 'https://noraj.github.io/tls-map/yard/',
+    'homepage_uri'      => 'https://noraj.github.io/tls-map/',
+    'source_code_uri'   => 'https://github.com/noraj/tls-map/'
   }
 
   s.required_ruby_version = ['>= 2.6.0', '< 3.1']

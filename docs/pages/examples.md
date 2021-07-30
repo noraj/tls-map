@@ -107,7 +107,7 @@ See [Usage](/pages/usage#CLI) for other formats.
 ### Extract
 
 Extract ciphers from external tools output file.
-SSLyze, sslscan2, testssl.sh, ssllabs-scan are supported, see the [library documentation](https://sec-it.github.io/tls-map/yard/TLSmap/App/Extractor) for expected file format.
+SSLyze, sslscan2, testssl.sh, ssllabs-scan are supported, see the [library documentation](https://noraj.github.io/tls-map/yard/TLSmap/App/Extractor) for expected file format.
 
 ```
 $ tls-map extract newwebsite.json ssllabs-scan
@@ -255,7 +255,7 @@ tmext.find_vuln('DES CBC')
 ```
 
 Extract ciphers from external tools output file.
-SSLyze, sslscan2, testssl.sh, ssllabs-scan are supported, see the [library documentation](https://sec-it.github.io/tls-map/yard/TLSmap/App/Extractor).
+SSLyze, sslscan2, testssl.sh, ssllabs-scan are supported, see the [library documentation](https://noraj.github.io/tls-map/yard/TLSmap/App/Extractor).
 
 ```ruby
 require 'tls_map'

@@ -1,3 +1,3 @@
 - [Home](/)
-- [Source](https://github.com/sec-it/tls-map)
-- [Library doc](https://sec-it.github.io/tls-map/yard/)
+- [Source](https://github.com/noraj/tls-map)
+- [Library doc](https://noraj.github.io/tls-map/yard/)

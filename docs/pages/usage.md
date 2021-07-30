@@ -64,7 +64,7 @@ tm.search(:codepoint, '1303') #=> {:codepoint=>"1303", :iana=>"TLS_CHACHA20_POLY
 tm.search(:nss, 'TLS_AES_256_GCM_SHA384') #=> {:codepoint=>"1302", :iana=>"TLS_AES_256_GCM_SHA384", :openssl=>"TLS_AES_256_GCM_SHA384", :gnutls=>"AES_256_GCM_SHA384", :nss=>"TLS_AES_256_GCM_SHA384"}
 ```
 
-See [Examples](/pages/examples) or [the library doc](https://sec-it.github.io/tls-map/yard/TLSmap/App.html)
+See [Examples](/pages/examples) or [the library doc](https://noraj.github.io/tls-map/yard/TLSmap/App.html)
 
 ## Console
 

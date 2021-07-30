@@ -43,7 +43,7 @@ $ gem install --development tls-map
 Just replace `x.x.x` with the gem version you see after `gem build`.
 
 ```plaintext
-$ git clone https://github.com/sec-it/tls-map.git tls-map
+$ git clone https://github.com/noraj/tls-map.git tls-map
 $ cd tls-map
 $ gem install bundler
 $ bundler install

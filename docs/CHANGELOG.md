@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+Chore:
+
+- Fork: repository move from [sec-it/tls-map](https://github.com/sec-it/tls-map) to [noraj/tls-map](https://github.com/noraj/tls-map)
+
 ## [1.3.2]
 
 Additions:
@@ -38,7 +42,7 @@ Documentation:
 
 Additions:
 
-- New `TLSmap::App::Extractor` class: extract ciphers from external tools file output (see [lib doc](https://sec-it.github.io/tls-map/yard/TLSmap/App/Extractor))
+- New `TLSmap::App::Extractor` class: extract ciphers from external tools file output (see [lib doc](https://noraj.github.io/tls-map/yard/TLSmap/App/Extractor))
   - Support SSLyze, sslscan2, testssl.sh, ssllabs-scan
   - New `extract` CLI command
 

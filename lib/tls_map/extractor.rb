@@ -98,7 +98,7 @@ module TLSmap
       #   command (CLI) / {parse} method (library)
       def helper(tool)
         intro = 'You may not be provinding the right format.'
-        outro = 'See https://sec-it.github.io/tls-map/yard/TLSmap/App/Extractor'
+        outro = 'See https://noraj.github.io/tls-map/yard/TLSmap/App/Extractor'
         "#{intro}\nUse this command: #{CMD[tool]}\n#{outro}"
       end
 

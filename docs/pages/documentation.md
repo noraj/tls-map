@@ -17,7 +17,7 @@ Documentation available at: http://localhost:3000/
 
 The output directory of the library documentation will be `docs/yard`.
 
-You can consult it online on [GitHub](https://sec-it.github.io/tls-map/yard/) or on [RubyDoc](https://www.rubydoc.info/gems/tls-map/).
+You can consult it online on [GitHub](https://noraj.github.io/tls-map/yard/) or on [RubyDoc](https://www.rubydoc.info/gems/tls-map/).
 
 ### Building locally: for library users
 
