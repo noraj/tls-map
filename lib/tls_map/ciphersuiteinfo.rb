@@ -44,6 +44,13 @@ module TLSmap
         1 => { title: 'Medium', color: 'orange' },
         2 => { title: 'High', color: :red }
       }.freeze
+      # Hash mapping the security level used by the API and color for the CLI
+      SECURITY_LEVEL = {
+        'recommended' => { color: :green },
+        'secure' => { color: :green },
+        'weak' => { color: 'orange' },
+        'insecure' => { color: :red }
+      }.freeze
 
       # Will automatically fetch source files and parse them.
       def initialize

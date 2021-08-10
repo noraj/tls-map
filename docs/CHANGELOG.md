@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+Additions:
+
+- Extended:
+  - add security level mapping
+  - colorize `security` value depending on the security level
+
 Chore:
 
 - Fork: repository move from [sec-it/tls-map](https://github.com/sec-it/tls-map) to [noraj/tls-map](https://github.com/noraj/tls-map)

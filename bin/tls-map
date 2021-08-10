@@ -71,6 +71,7 @@ begin
       ext = tmext_i.extend(res[:iana])
       dic = tmext::DICO
       sev = tmext::VULN_SEVERITY
+      sec_lvl = tmext::SECURITY_LEVEL
       ext.each do |k, v|
         case k
         when 'vulns'
@@ -81,6 +82,8 @@ begin
           end
         when 'tls_version'
           puts "#{Paint[dic[k], :magenta]}: #{Paint[v.join(', '), :white]}"
+        when 'security'
+          puts "#{Paint[dic[k], :magenta]}: #{Paint[v, sec_lvl[v][:color]]}"
         else
           print "#{Paint[dic[k], :magenta]}: #{Paint[v, :white]}"
           print " (#{tmext_i.translate_acronym(v)})" if args['--acronym'] && !tmext_i.translate_acronym(v).nil? # rubocop:disable Metrics/BlockNesting
