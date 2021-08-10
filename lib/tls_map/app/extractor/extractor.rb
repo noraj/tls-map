@@ -3,7 +3,7 @@
 # Ruby internal
 require 'json'
 # Project internal
-require 'tls_map/cli'
+require 'tls_map/cli/cli'
 # External
 require 'rexml/document'
 

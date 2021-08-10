@@ -5,7 +5,7 @@
 require 'pp'
 # Project internal
 require 'tls_map'
-require 'tls_map/cli'
+require 'tls_map/cli/cli'
 # External
 require 'docopt'
 require 'paint'

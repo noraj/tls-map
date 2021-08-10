@@ -94,7 +94,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/tls_map/ciphersuiteinfo.rb</dd>
+    <dd>lib/tls_map/app/extended/ciphersuiteinfo.rb</dd>
   </dl>
   
 </div>
@@ -229,6 +229,26 @@
   <span class='int'>0</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='label'>title:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Low</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>color:</span> <span class='symbol'>:yellow</span> <span class='rbrace'>}</span><span class='comma'>,</span>
   <span class='int'>1</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='label'>title:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Medium</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>color:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>orange</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span>
   <span class='int'>2</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='label'>title:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>High</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>color:</span> <span class='symbol'>:red</span> <span class='rbrace'>}</span>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="SECURITY_LEVEL-constant" class="">SECURITY_LEVEL =
+          <div class="docstring">
+  <div class="discussion">
+    <p>Hash mapping the security level used by the API and color for the CLI</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>recommended</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='label'>color:</span> <span class='symbol'>:green</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>secure</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='label'>color:</span> <span class='symbol'>:green</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>weak</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='label'>color:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>orange</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>insecure</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='label'>color:</span> <span class='symbol'>:red</span> <span class='rbrace'>}</span>
 <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
     </dl>
@@ -373,15 +393,15 @@
       <pre class="lines">
 
 
-49
-50
-51
-52
-53
-54</pre>
+56
+57
+58
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/ciphersuiteinfo.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extended/ciphersuiteinfo.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@tech_file</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Utils.html" title="TLSmap::Utils (module)">Utils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_tmpfile'><span class='object_link'><a href="../Utils.html#tmpfile-class_method" title="TLSmap::Utils.tmpfile (method)">tmpfile</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tech</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#TECH_DATA-constant" title="TLSmap::App::Extended::TECH_DATA (constant)">TECH_DATA</a></span></span><span class='rparen'>)</span>
@@ -464,13 +484,6 @@ except <code>vulns</code> which is an array of hashes containing two keys: <code
       <pre class="lines">
 
 
-61
-62
-63
-64
-65
-66
-67
 68
 69
 70
@@ -478,10 +491,17 @@ except <code>vulns</code> which is an array of hashes containing two keys: <code
 72
 73
 74
-75</pre>
+75
+76
+77
+78
+79
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/ciphersuiteinfo.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extended/ciphersuiteinfo.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_extend'>extend</span><span class='lparen'>(</span><span class='id identifier rubyid_iana_name'>iana_name</span><span class='rparen'>)</span> <span class='comment'># rubocop:disable Metrics/MethodLength
 </span>  <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#API_ROOT-constant" title="TLSmap::App::Extended::API_ROOT (constant)">API_ROOT</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>cs/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_iana_name'>iana_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -564,14 +584,14 @@ except <code>vulns</code> which is an array of hashes containing two keys: <code
       <pre class="lines">
 
 
-111
-112
-113
-114
-115</pre>
+118
+119
+120
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/ciphersuiteinfo.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extended/ciphersuiteinfo.rb', line 118</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_vuln'>find_vuln</span><span class='lparen'>(</span><span class='id identifier rubyid_tech'>tech</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@tech</span><span class='lbracket'>[</span><span class='id identifier rubyid_tech'>tech</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:vulnerabilities</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_vuln'>vuln</span><span class='op'>|</span> <span class='ivar'>@vuln</span><span class='lbracket'>[</span><span class='id identifier rubyid_vuln'>vuln</span><span class='rbracket'>]</span> <span class='rbrace'>}</span> <span class='kw'>unless</span> <span class='ivar'>@tech</span><span class='lbracket'>[</span><span class='id identifier rubyid_tech'>tech</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:vulnerabilities</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -644,14 +664,14 @@ except <code>vulns</code> which is an array of hashes containing two keys: <code
       <pre class="lines">
 
 
-102
-103
-104
-105
-106</pre>
+109
+110
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/ciphersuiteinfo.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extended/ciphersuiteinfo.rb', line 109</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_translate_acronym'>translate_acronym</span><span class='lparen'>(</span><span class='id identifier rubyid_term'>term</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@tech</span><span class='lbracket'>[</span><span class='id identifier rubyid_term'>term</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:long_name</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='ivar'>@tech</span><span class='lbracket'>[</span><span class='id identifier rubyid_term'>term</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -668,7 +688,7 @@ except <code>vulns</code> which is an array of hashes containing two keys: <code
 </div>
 
       <div id="footer">
-  Generated on Fri Jul 30 12:12:21 2021 by
+  Generated on Tue Aug 10 17:33:23 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>

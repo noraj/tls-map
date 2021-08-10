@@ -1,6 +1,12 @@
 # Changelog
 
-## [Unreleased]
+## [2.0.0]
+
+**BREAKING CHANGES:**
+
+- More modular file architecture in `lib`
+  - It shouldn't change anything from user perspective (CLI & lib)
+  - It will change the `require` path for people who want to develop on tls-map or that use some fragments of the library
 
 Additions:
 

@@ -4,14 +4,14 @@
 require 'pathname'
 # Project internal
 require 'tls_map/version'
-require 'tls_map/utils'
-require 'tls_map/iana'
-require 'tls_map/openssl'
-require 'tls_map/gnutls'
-require 'tls_map/nss'
-require 'tls_map/output'
-require 'tls_map/ciphersuiteinfo'
-require 'tls_map/extractor'
+require 'tls_map/utils/utils'
+require 'tls_map/app/iana'
+require 'tls_map/app/openssl'
+require 'tls_map/app/gnutls'
+require 'tls_map/app/nss'
+require 'tls_map/app/output'
+require 'tls_map/app/extended/ciphersuiteinfo'
+require 'tls_map/app/extractor/extractor'
 
 # TLS map module
 module TLSmap

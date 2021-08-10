@@ -3,7 +3,7 @@
 require 'minitest/autorun'
 require 'minitest/skip_dsl'
 require 'tls_map'
-require 'tls_map/cli'
+require 'tls_map//cli/cli'
 
 class TLSmapCLITest < Minitest::Test
   def test_CLI
