@@ -2,7 +2,7 @@
 
 # TLS map
 
-> CLI & library for mapping TLS cipher algorithm names: IANA, OpenSSL, GnuTLS, NSS
+> CLI & library for TLS cipher suites manipulation
 
 [GitHub](https://github.com/noraj/tls-map)
 [Get Started](pages/quick-start?id=quick-start)

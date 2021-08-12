@@ -11,7 +11,9 @@
 
 ![logo](docs/_media/logo.png)
 
-> CLI & library for mapping TLS cipher algorithm names: IANA, OpenSSL, GnuTLS, NSS and get information about cipher suites
+> CLI & library for mapping TLS cipher algorithm names: IANA, OpenSSL, GnuTLS, NSS;
+> get information and vulnerabilities about cipher suites;
+> extract cipher suites from external tools: SSLyze, sslscan2, testssl.sh, ssllabs-scan
 
 **CLI**
 
