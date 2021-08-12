@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: TLSmap::App::Cipher
+  
+    &mdash; Documentation by YARD 0.9.26
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "TLSmap::App::Cipher";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../TLSmap.html" title="TLSmap (module)">TLSmap</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../App.html" title="TLSmap::App (class)">App</a></span></span>
+     &raquo; 
+    <span class="title">Cipher</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: TLSmap::App::Cipher
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">TLSmap::App::Cipher</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/tls_map/app/cipher/cipher.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Manipulate cipher suite information</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#codepoint-instance_method" title="#codepoint (instance method)">#<strong>codepoint</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get the hexadecimal codepoint of the cipher suite.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extended-instance_method" title="#extended (instance method)">#<strong>extended</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get extended information.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gnutls-instance_method" title="#gnutls (instance method)">#<strong>gnutls</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get the GnuTLS name of the cipher suite.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#iana-instance_method" title="#iana (instance method)">#<strong>iana</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get the IANA name of the cipher suite.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#nss-instance_method" title="#nss (instance method)">#<strong>nss</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get the NSS name of the cipher suite.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#openssl-instance_method" title="#openssl (instance method)">#<strong>openssl</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get the OpenSSL name of the cipher suite.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(type, value, opts = {})  &#x21d2; Cipher </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Initialize <span class='object_link'><a href="" title="TLSmap::App::Cipher (class)">Cipher</a></span> instance.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#insecure%3F-instance_method" title="#insecure? (instance method)">#<strong>insecure?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Is the security level defined to <code>insecure</code>?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#recommended%3F-instance_method" title="#recommended? (instance method)">#<strong>recommended?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Is the security level defined to <code>recommended</code>?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#secure%3F-instance_method" title="#secure? (instance method)">#<strong>secure?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Is the security level defined to <code>secure</code>?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#should_i_use%3F-instance_method" title="#should_i_use? (instance method)">#<strong>should_i_use?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Is the security level defined to <code>secure</code> or <code>recommended</code>? It will return <code>false</code> for <code>weak</code> and <code>insecure</code> cipher suites.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vulnerable%3F-instance_method" title="#vulnerable? (instance method)">#<strong>vulnerable?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Is the cipher suite vulnerable?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#weak%3F-instance_method" title="#weak? (instance method)">#<strong>weak?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Is the security level defined to <code>weak</code>?.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(type, value, opts = {})  &#x21d2; <tt><span class='object_link'><a href="" title="TLSmap::App::Cipher (class)">Cipher</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Initialize <span class='object_link'><a href="" title="TLSmap::App::Cipher (class)">TLSmap::App::Cipher</a></span> instance</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span style="color:#777"># Offline TLS data + online extended data</span>
+ci = <span style="color:#036;font-weight:bold">TLSmap</span>::<span style="color:#036;font-weight:bold">App</span>::<span style="color:#036;font-weight:bold">Cipher</span>.new(<span style="color:#A60">:iana</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS_DH_anon_WITH_RC4_128_MD5</span><span style="color:#710">'</span></span>)
+<span style="color:#777"># Online TLS data + online extended data</span>
+tm = <span style="color:#036;font-weight:bold">TLSmap</span>::<span style="color:#036;font-weight:bold">App</span>.new
+ci = <span style="color:#036;font-weight:bold">TLSmap</span>::<span style="color:#036;font-weight:bold">App</span>::<span style="color:#036;font-weight:bold">Cipher</span>.new(<span style="color:#A60">:iana</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS_DH_anon_WITH_RC4_128_MD5</span><span style="color:#710">'</span></span>, <span style="color:#606">tls_map</span>: tm.tls_map)
+<span style="color:#777"># Offline TLS data + online extended data but more efficient for batch requesting</span>
+tmext = <span style="color:#036;font-weight:bold">TLSmap</span>::<span style="color:#036;font-weight:bold">App</span>::<span style="color:#036;font-weight:bold">Extended</span>.new
+tmext.enhance_all
+ci = <span style="color:#036;font-weight:bold">TLSmap</span>::<span style="color:#036;font-weight:bold">App</span>::<span style="color:#036;font-weight:bold">Cipher</span>.new(<span style="color:#A60">:iana</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS_DH_anon_WITH_RC4_128_MD5</span><span style="color:#710">'</span></span>, <span style="color:#606">enhanced_data</span>: tmext.enhanced_data)
+<span style="color:#777"># Offline TLS data + offline extended data (better performance but may be outdated)</span>
+cliext = <span style="color:#036;font-weight:bold">TLSmap</span>::<span style="color:#036;font-weight:bold">CLI</span>::<span style="color:#036;font-weight:bold">Extended</span>.new
+ci = <span style="color:#036;font-weight:bold">TLSmap</span>::<span style="color:#036;font-weight:bold">App</span>::<span style="color:#036;font-weight:bold">Cipher</span>.new(<span style="color:#A60">:iana</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS_DH_anon_WITH_RC4_128_MD5</span><span style="color:#710">'</span></span>, <span style="color:#606">enhanced_data</span>: cliext.enhanced_data)</code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>type</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Same as <code>criteria</code> from <span class='object_link'><a href="../App.html#search-instance_method" title="TLSmap::App#search (method)">TLSmap::App#search</a></span></p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>value</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Same as <code>term</code> from <span class='object_link'><a href="../App.html#search-instance_method" title="TLSmap::App#search (method)">TLSmap::App#search</a></span></p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>the option hash</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:tls_map</span>
+          <span class="type">(<tt>Hash</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>mapping of all TLS cipher suites returned by <span class='object_link'><a href="../App.html#tls_map-instance_method" title="TLSmap::App#tls_map (method)">TLSmap::App#tls_map</a></span>.
+(better performance for batch usage)</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:enhanced_data</span>
+          <span class="type">(<tt>Hash</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>enhanced information of all cipher suites returned by
+<span class='object_link'><a href="Extended.html#enhanced_data-instance_method" title="TLSmap::App::Extended#enhanced_data (method)">Extended#enhanced_data</a></span>. (better performance for batch usage)</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/cipher/cipher.rb', line 84</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">initialize</span>(type, value, opts = {}) <span style="color:#777"># rubocop:disable Metrics/MethodLength</span>
+  res = <span style="color:#080;font-weight:bold">if</span> opts[<span style="color:#A60">:tls_map</span>].nil?
+          <span style="color:#036;font-weight:bold">TLSmap</span>::<span style="color:#036;font-weight:bold">CLI</span>.new.search(type, value)
+        <span style="color:#080;font-weight:bold">else</span>
+          <span style="color:#036;font-weight:bold">TLSmap</span>::<span style="color:#036;font-weight:bold">App</span>.search(opts[<span style="color:#A60">:tls_map</span>], type, value)
+        <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#33B">@codepoint</span> = res[<span style="color:#A60">:codepoint</span>]
+  <span style="color:#33B">@iana</span> = res[<span style="color:#A60">:iana</span>]
+  <span style="color:#33B">@openssl</span> = res[<span style="color:#A60">:openssl</span>]
+  <span style="color:#33B">@gnutls</span> = res[<span style="color:#A60">:gnutls</span>]
+  <span style="color:#33B">@nss</span> = res[<span style="color:#A60">:nss</span>]
+  <span style="color:#33B">@extended</span> = opts.dig(<span style="color:#A60">:enhanced_data</span>, <span style="color:#33B">@iana</span>)
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="codepoint-instance_method">
+  
+    #<strong>codepoint</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get the hexadecimal codepoint of the cipher suite</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Hexadecimal codepoint</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13
+14
+15</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/cipher/cipher.rb', line 13</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">codepoint</span>
+  <span style="color:#33B">@codepoint</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="extended-instance_method">
+  
+    #<strong>extended</strong>  &#x21d2; <tt>Hash</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get extended information</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>ci = <span style="color:#036;font-weight:bold">TLSmap</span>::<span style="color:#036;font-weight:bold">App</span>::<span style="color:#036;font-weight:bold">Cipher</span>.new(<span style="color:#A60">:iana</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS_RSA_WITH_SEED_CBC_SHA</span><span style="color:#710">'</span></span>)
+ci.extended
+<span style="color:#777"># =&gt;</span>
+<span style="color:#777"># {&quot;protocol_version&quot;=&gt;&quot;TLS&quot;,</span>
+<span style="color:#777">#  &quot;kex_algorithm&quot;=&gt;&quot;RSA&quot;,</span>
+<span style="color:#777">#  &quot;auth_algorithm&quot;=&gt;&quot;RSA&quot;,</span>
+<span style="color:#777">#  &quot;enc_algorithm&quot;=&gt;&quot;SEED CBC&quot;,</span>
+<span style="color:#777">#  &quot;hash_algorithm&quot;=&gt;&quot;SHA&quot;,</span>
+<span style="color:#777">#  &quot;security&quot;=&gt;&quot;weak&quot;,</span>
+<span style="color:#777">#  &quot;tls_version&quot;=&gt;[&quot;TLS1.0&quot;, &quot;TLS1.1&quot;, &quot;TLS1.2&quot;],</span>
+<span style="color:#777">#  &quot;vulns&quot;=&gt;</span>
+<span style="color:#777">#   [{:severity=&gt;1, :description=&gt;&quot;This key exchange algorithm does not support Perfect Forward Secrecy (PFS)</span>
+<span style="color:#777">#   which is recommended, so attackers cannot decrypt the complete communication stream.&quot;},</span>
+<span style="color:#777">#    {:severity=&gt;1,</span>
+<span style="color:#777">#     :description=&gt;</span>
+<span style="color:#777">#      &quot;In 2013, researchers demonstrated a timing attack against several TLS implementations using the CBC</span>
+<span style="color:#777">#      encryption algorithm (see [isg.rhul.ac.uk](http://www.isg.rhul.ac.uk/tls/Lucky13.html)). Additionally,</span>
+<span style="color:#777">#      the CBC mode is vulnerable to plain-text attacks in TLS 1.0, SSL 3.0 and lower. A fix has been</span>
+<span style="color:#777">#      introduced with TLS 1.2 in form of the GCM mode which is not vulnerable to the BEAST attack. GCM should</span>
+<span style="color:#777">#      be preferred over CBC.&quot;},</span>
+<span style="color:#777">#    {:severity=&gt;1, :description=&gt;&quot;The Secure Hash Algorithm 1 has been proven to be insecure as of 2017 (see</span>
+<span style="color:#777">#      [shattered.io](https://shattered.io)).&quot;}],</span>
+<span style="color:#777">#  &quot;url&quot;=&gt;&quot;https://ciphersuite.info/cs/TLS_RSA_WITH_SEED_CBC_SHA/&quot;}</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/cipher/cipher.rb', line 58</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">extended</span>
+  fetch_extended
+  <span style="color:#33B">@extended</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="gnutls-instance_method">
+  
+    #<strong>gnutls</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get the GnuTLS name of the cipher suite</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>GnuTLS name</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/cipher/cipher.rb', line 25</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">gnutls</span>
+  <span style="color:#33B">@gnutls</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="iana-instance_method">
+  
+    #<strong>iana</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get the IANA name of the cipher suite</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>IANA name</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/cipher/cipher.rb', line 17</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">iana</span>
+  <span style="color:#33B">@iana</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="nss-instance_method">
+  
+    #<strong>nss</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get the NSS name of the cipher suite</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>NSS name</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/cipher/cipher.rb', line 29</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">nss</span>
+  <span style="color:#33B">@nss</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="openssl-instance_method">
+  
+    #<strong>openssl</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get the OpenSSL name of the cipher suite</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>OpenSSL name</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21
+22
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/cipher/cipher.rb', line 21</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">openssl</span>
+  <span style="color:#33B">@openssl</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="insecure?-instance_method">
+  
+    #<strong>insecure?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Is the security level defined to <code>insecure</code>?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+115
+116
+117
+118</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/cipher/cipher.rb', line 115</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">insecure?</span>
+  fetch_extended
+  <span style="color:#33B">@extended</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">security</span><span style="color:#710">'</span></span>] == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">insecure</span><span style="color:#710">'</span></span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="recommended?-instance_method">
+  
+    #<strong>recommended?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Is the security level defined to <code>recommended</code>?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+129
+130
+131
+132</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/cipher/cipher.rb', line 129</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">recommended?</span>
+  fetch_extended
+  <span style="color:#33B">@extended</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">security</span><span style="color:#710">'</span></span>] == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">recommended</span><span style="color:#710">'</span></span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="secure?-instance_method">
+  
+    #<strong>secure?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Is the security level defined to <code>secure</code>?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+122
+123
+124
+125</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/cipher/cipher.rb', line 122</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">secure?</span>
+  fetch_extended
+  <span style="color:#33B">@extended</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">security</span><span style="color:#710">'</span></span>] == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">secure</span><span style="color:#710">'</span></span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="should_i_use?-instance_method">
+  
+    #<strong>should_i_use?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Is the security level defined to <code>secure</code> or <code>recommended</code>?
+It will return <code>false</code> for <code>weak</code> and <code>insecure</code> cipher suites.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+137
+138
+139</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/cipher/cipher.rb', line 137</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">should_i_use?</span>
+  recommended? || secure?
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="vulnerable?-instance_method">
+  
+    #<strong>vulnerable?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Is the cipher suite vulnerable?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p><code>true</code> if one (or more) vulnerability is declared</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143
+144
+145
+146</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/cipher/cipher.rb', line 143</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">vulnerable?</span>
+  fetch_extended
+  !<span style="color:#33B">@extended</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vulns</span><span style="color:#710">'</span></span>].empty?
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="weak?-instance_method">
+  
+    #<strong>weak?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Is the security level defined to <code>weak</code>?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+108
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/cipher/cipher.rb', line 108</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">weak?</span>
+  fetch_extended
+  <span style="color:#33B">@extended</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">security</span><span style="color:#710">'</span></span>] == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">weak</span><span style="color:#710">'</span></span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Thu Aug 12 21:29:17 2021 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.26 (ruby-3.0.2).
+</div>
+
+    </div>
+  </body>
+</html>

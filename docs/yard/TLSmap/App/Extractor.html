@@ -414,9 +414,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 36</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
-  <span class='ivar'>@ciphers</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">initialize</span>
+  <span style="color:#33B">@ciphers</span> = []
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -478,9 +478,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 33</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_ciphers'>ciphers</span>
-  <span class='ivar'>@ciphers</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">ciphers</span>
+  <span style="color:#33B">@ciphers</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -579,12 +579,12 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 80</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_tool'>tool</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span>
-  <span class='comment'># Convert string to class
-</span>  <span class='ivar'>@ciphers</span> <span class='op'>=</span> <span class='const'>Object</span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>TLSmap::App::Extractor::</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_normalize'>normalize</span><span class='lparen'>(</span><span class='id identifier rubyid_tool'>tool</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span>
-<span class='kw'>rescue</span> <span class='const'>StandardError</span>
-  <span class='id identifier rubyid_warn'>warn</span> <span class='id identifier rubyid_helper'>helper</span><span class='lparen'>(</span><span class='id identifier rubyid_tool'>tool</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">parse</span>(tool, file)
+  <span style="color:#777"># Convert string to class</span>
+  <span style="color:#33B">@ciphers</span> = <span style="color:#036;font-weight:bold">Object</span>.const_get(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">TLSmap::App::Extractor::</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>normalize(tool)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>).parse(file)
+<span style="color:#080;font-weight:bold">rescue</span> <span style="color:#036;font-weight:bold">StandardError</span>
+  warn helper(tool)
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -639,9 +639,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 42</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_ssl20'>ssl20</span>
-  <span class='ivar'>@ciphers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSL2.0</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">ssl20</span>
+  <span style="color:#33B">@ciphers</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SSL2.0</span><span style="color:#710">'</span></span>]
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -696,9 +696,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 48</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_ssl30'>ssl30</span>
-  <span class='ivar'>@ciphers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSL3.0</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">ssl30</span>
+  <span style="color:#33B">@ciphers</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SSL3.0</span><span style="color:#710">'</span></span>]
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -753,9 +753,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 54</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_tls10'>tls10</span>
-  <span class='ivar'>@ciphers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLS1.0</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">tls10</span>
+  <span style="color:#33B">@ciphers</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.0</span><span style="color:#710">'</span></span>]
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -810,9 +810,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 60</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_tls11'>tls11</span>
-  <span class='ivar'>@ciphers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLS1.1</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">tls11</span>
+  <span style="color:#33B">@ciphers</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.1</span><span style="color:#710">'</span></span>]
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -867,9 +867,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 66</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_tls12'>tls12</span>
-  <span class='ivar'>@ciphers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLS1.2</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">tls12</span>
+  <span style="color:#33B">@ciphers</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.2</span><span style="color:#710">'</span></span>]
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -924,9 +924,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 72</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_tls13'>tls13</span>
-  <span class='ivar'>@ciphers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLS1.3</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">tls13</span>
+  <span style="color:#33B">@ciphers</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.3</span><span style="color:#710">'</span></span>]
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -937,7 +937,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Aug 10 17:33:23 2021 by
+  Generated on Thu Aug 12 21:29:17 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>

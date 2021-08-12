@@ -10,13 +10,39 @@
 
 Additions:
 
-- Extended:
-  - add security level mapping
-  - colorize `security` value depending on the security level
+- `TLSmap::App::Extended`:
+  - add security level mapping: `SECURITY_LEVEL`
+  - add a new attribute and getter `enhanced_data`, it contains a hash with enhanced information of all cipher suites (like the output of `extend` but for all cipher suites)
+  - add a new attribute `ciphersuite_all` containing raw data from ciphersuite.info (non-yet enhanced version of `enhanced_data`), only for internal use.
+  - internal method `fetch_ciphersuite` that populate `ciphersuite_all` attribute
+  - add `enhance_all` method, fetch and enhance data from ciphersuite.info for all cipher suites and store it for batch usage.
+  - new attribute for `extend` method: `caching`: will fetch info for all cipher suites the 1st time and used the cached value for further requests
+- `TLSmap::App`:
+  - add a `search` class method for stateless usage
+  - add a getter for `tls_map` attribute
+- `TLSmap::App::Cipher`:
+  - New class allowing to manipulate cipher suite information (check the library doc for more details)
+- `TLSmap::CLI`
+  - small transparent fixes and spelling mistakes corrected
+- `TLSmap::CLI::Extended`
+  - new class implementing an offline version of `TLSmap::CLI::Extended`, intended for CLI or offline usage and batch requests (using `data/extended.marshal`)
+- CLI
+  - `Search`
+    - `--extended`: colorize `security` value depending on the security level
+  - `Extract`
+    - add `--only-weak` to `--hide-weak` to have the ability to show/hide weak cipher suites
+  - `Update`
+    - add `--with-extended` option to backup `extended.marshal` in addition to `mapping.marshal`
 
 Chore:
 
-- Fork: repository move from [sec-it/tls-map](https://github.com/sec-it/tls-map) to [noraj/tls-map](https://github.com/noraj/tls-map)
+- Dev dependencies:
+  - Remove commonmarker since it's not supported by yard yet
+  - Add yard-coderay for basic syntax highlight
+  - Update rubocop
+
+- Fork:
+  - repository move from [sec-it/tls-map](https://github.com/sec-it/tls-map) to [noraj/tls-map](https://github.com/noraj/tls-map)
 
 ## [1.3.2]
 

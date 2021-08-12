@@ -9,12 +9,19 @@ class TLSmapAppTest < Minitest::Test
     @tm = TLSmap::App.new
   end
 
+  # the instance method
   def test_App_search
     assert_equal({:iana=>"TLS_RSA_WITH_RC4_128_SHA"}, @tm.search(:gnutls, 'RSA_ARCFOUR_128_SHA1', :iana))
     assert_equal({:iana=>"TLS_RSA_WITH_AES_128_CBC_SHA"}, @tm.search(:openssl, 'AES128-SHA', :iana))
     assert_equal({:codepoint=>"0037"}, @tm.search(:iana, 'TLS_DH_RSA_WITH_AES_256_CBC_SHA', :codepoint))
     assert_equal({:codepoint=>"1303", :iana=>"TLS_CHACHA20_POLY1305_SHA256", :openssl=>"TLS_CHACHA20_POLY1305_SHA256", :gnutls=>"CHACHA20_POLY1305_SHA256", :nss=>"TLS_CHACHA20_POLY1305_SHA256"}, @tm.search(:codepoint, '1303'))
     assert_equal({:codepoint=>"1302", :iana=>"TLS_AES_256_GCM_SHA384", :openssl=>"TLS_AES_256_GCM_SHA384", :gnutls=>"AES_256_GCM_SHA384", :nss=>"TLS_AES_256_GCM_SHA384"}, @tm.search(:nss, 'TLS_AES_256_GCM_SHA384'))
+  end
+
+  # the class method
+  def test_App_search2
+    assert_equal({:iana=>"TLS_RSA_WITH_RC4_128_SHA"}, TLSmap::App.search(@tm.tls_map, :gnutls, 'RSA_ARCFOUR_128_SHA1', :iana))
+    assert_equal({:codepoint=>"1302", :iana=>"TLS_AES_256_GCM_SHA384", :openssl=>"TLS_AES_256_GCM_SHA384", :gnutls=>"AES_256_GCM_SHA384", :nss=>"TLS_AES_256_GCM_SHA384"}, TLSmap::App.search(@tm.tls_map, :nss, 'TLS_AES_256_GCM_SHA384'))
   end
 
   def test_App_bulk_search

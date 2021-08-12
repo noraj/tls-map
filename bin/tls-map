@@ -16,23 +16,23 @@ doc = <<~DOCOPT
   TLS map #{TLSmap::VERSION}
 
   Usage:
-    tls-map search <critera> <term> [-o <output> --force -e -a] [--no-color --debug]
-    tls-map bulk <critera> <file> [-q <output> --force] [--no-color --debug]
+    tls-map search <criteria> <term> [-o <output> --force -e -a] [--no-color --debug]
+    tls-map bulk <criteria> <file> [-q <output> --force] [--no-color --debug]
     tls-map export <filename> <format> [--force] [--debug]
-    tls-map extract <filename> <format> [--no-color --debug]
-    tls-map update [--debug]
+    tls-map extract <filename> <format> [--no-color --debug [--only-weak | --hide-weak]]
+    tls-map update [--with-extended] [--debug]
     tls-map -h | --help
     tls-map --version
 
   Search options: (offline) search and translate cipher names between SSL/TLS libraries
-    <critera>               The type of term. Accepted values: codepoint, iana, openssl, gnutls, nss.
+    <criteria>              The type of term. Accepted values: codepoint, iana, openssl, gnutls, nss.
     <term>                  The cipher algorithm name.
     -o, --output <output>   Displayed fields. Accepted values: all, codepoint, iana, openssl, gnutls, nss. [default: all]
     -e, --extended          (Online) Display additional information about the cipher (requires output = all or iana)
     -a, --acronym           (Online) Display full acronym name (requires -e / --extended option)
 
   Bulk options: (offline) search and translate cipher names between SSL/TLS libraries in bulk
-    <critera>               The type of term. Accepted values: codepoint, iana, openssl, gnutls, nss.
+    <criteria>              The type of term. Accepted values: codepoint, iana, openssl, gnutls, nss.
     <file>                  File containing the cipher algorithm names, one per line.
     -q, --output2 <output>  Displayed fields. Accepted values: codepoint, iana, openssl, gnutls, nss. [default: iana]
 
@@ -43,8 +43,11 @@ doc = <<~DOCOPT
   Extract options: (offline) extract ciphers from external tools output file
     <filename>              The external tool output file
     <format>                Supported formats: sslyze, sslscan2, testssl, ssllabs-scan (check the documentation for the expected file format)
+    --only-weak             Show only ciphers with a security level equal to weak or insecure (hide secure and recommended) (work only with TLS not SSL).
+    --hide-weak             Hide ciphers with a security level equal to weak or insecure (show only secure and recommended) (work only with TLS not SSL).
 
   Update options: (online) DANGEROUS, will break database integrity, force option will be required
+    --with-extended         (Online) Also save extended information used by search --extended option.
 
   Other options:
     --force     Force parsing even if integrity check failed (DANGEROUS, may result in command execution vulnerability)
@@ -60,7 +63,7 @@ begin
   pp args if args['--debug']
   if args['search']
     cli = TLSmap::CLI.new(args['--force'])
-    res = cli.search(args['<critera>'].to_sym, args['<term>'], args['--output'].to_sym)
+    res = cli.search(args['<criteria>'].to_sym, args['<term>'], args['--output'].to_sym)
     puts Paint['No match found', :red] if res.empty?
     res.each do |k, v|
       puts "#{Paint[k, :green]}: #{Paint[v, :white]}"
@@ -93,7 +96,7 @@ begin
     end
   elsif args['bulk']
     cli = TLSmap::CLI.new(args['--force'])
-    res = cli.bulk_search(args['<critera>'].to_sym, args['<file>'], args['--output2'].to_sym)
+    res = cli.bulk_search(args['<criteria>'].to_sym, args['<file>'], args['--output2'].to_sym)
     puts Paint['No match found', :red] if res.empty?
     res.each do |h|
       puts Paint[h[args['--output2'].to_sym], :green]
@@ -106,13 +109,26 @@ begin
     extractor = TLSmap::App::Extractor.new
     ciphers = extractor.parse(args['<format>'], args['<filename>'])
     ciphers.each do |k, v|
-      puts Paint[k, :blue] unless v.empty?
-      puts Paint[v.join("\n"), :white] unless v.empty?
+      if args['--only-weak'] || args['--hide-weak']
+        cliext = TLSmap::CLI::Extended.new
+        v.each do |alg|
+          ci = TLSmap::App::Cipher.new(:iana, alg, enhanced_data: cliext.enhanced_data)
+          puts Paint[alg, :white] if (args['--only-weak'] && !ci.should_i_use?) ||
+                                     (args['--hide-weak'] && ci.should_i_use?)
+        end
+      else
+        puts Paint[k, :blue] unless v.empty?
+        puts Paint[v.join("\n"), :white] unless v.empty?
+      end
     end
   elsif args['update']
     cli = TLSmap::CLI.new
     cli.update
-    puts 'Database updated'
+    if args['--with-extended']
+      cliext = TLSmap::CLI::Extended.new
+      cliext.update
+    end
+    puts 'Database(s) updated'
   end
 rescue Docopt::Exit => e
   puts e.message

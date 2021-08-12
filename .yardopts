@@ -1,5 +1,7 @@
 --output-dir docs/yard
 --markup=markdown
+--markup-provider=redcarpet
+--plugin coderay
 -
 --main README.md
 LICENSE

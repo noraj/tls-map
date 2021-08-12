@@ -22,9 +22,9 @@ module TLSmap
       ROOT = 'https://ciphersuite.info/'
       # Root URL of Cipher Suite Info API
       API_ROOT = "#{ROOT}api/"
-      # URL of the data file containig vulnerabilities information
+      # URL of the data file containing vulnerabilities information
       VULN_DATA = 'https://raw.githubusercontent.com/hcrudolph/ciphersuite.info/master/directory/fixtures/00_vulnerabilities.yaml'
-      # URL of the data file containig technologies information
+      # URL of the data file containing technologies information
       TECH_DATA = 'https://raw.githubusercontent.com/hcrudolph/ciphersuite.info/master/directory/fixtures/01_technologies.yaml'
       # Hash mapping API key and display name for CLI
       DICO = {
@@ -52,22 +52,57 @@ module TLSmap
         'insecure' => { color: :red }
       }.freeze
 
+      # Get the enhanced information of all cipher suites returned by {enhance_all}.
+      # @return [Hash] Enhanced information of all cipher suites
+      attr_reader :enhanced_data
+
       # Will automatically fetch source files and parse them.
       def initialize
         @tech_file = Utils.tmpfile('tech', TECH_DATA)
         @vuln_file = Utils.tmpfile('vuln', VULN_DATA)
         @tech = parse_tech
         @vuln = parse_vuln
+        @ciphersuite_all = nil
+        @enhanced_data = nil
       end
 
-      # Retrieve advanced about a cipher on Cipher Suite Info API and enhanced it
+      # Fetch all cipher suite data from ciphersuite.info and store it in the instance attribute for batch usage.
+      def fetch_ciphersuite
+        return unless @ciphersuite_all.nil?
+
+        @ciphersuite_all = JSON.parse(Net::HTTP.get(URI("#{API_ROOT}cs/")))['ciphersuites'].reduce(:merge!)
+      end
+
+      # Enhance data from ciphersuite.info for all cipher suites and store it
+      # for batch usage.
+      # The data will be available through {enhanced_data}.
+      def enhance_all
+        fetch_ciphersuite
+        out = {}
+        @ciphersuite_all.each do |k, _v|
+          out.store(k, extend(k, true))
+        end
+        @enhanced_data = out
+      end
+
+      # Retrieve advanced information about a cipher on Cipher Suite Info API and enhanced it.
+      # Fetch only the requested cipher suite, small network footprint, ideal for low bandwidth or punctual use.
       # @param iana_name [String] IANA cipher name
-      # @return [Hash] Hash containing advanced information. The keys are the same as {DICO}. All valeus are string
+      # @param caching [Boolean] if true will fetch info for all cipher suites the 1st time and used the cached value
+      #   for further requests
+      # @return [Hash] Hash containing advanced information. The keys are the same as {DICO}. All values are string
       #   except `vulns` which is an array of hashes containing two keys: `:severity` (integer) and `:description`
       #   (string). Each hash in `vulns` correspond to a vulnerability.
-      def extend(iana_name) # rubocop:disable Metrics/MethodLength
-        obj = Net::HTTP.get(URI("#{API_ROOT}cs/#{iana_name}/"))
-        out = JSON.parse(obj)[iana_name]
+      def extend(iana_name, caching = false) # rubocop:disable Metrics/MethodLength
+        if caching
+          fetch_ciphersuite
+          out = @ciphersuite_all[iana_name]
+        else
+          obj = Net::HTTP.get(URI("#{API_ROOT}cs/#{iana_name}/"))
+          out = JSON.parse(obj)[iana_name]
+        end
+        return {} if out.nil?
+
         out.store('vulns', [])
         %w[openssl_name gnutls_name hex_byte_1 hex_byte_2].each do |key|
           out.delete(key)
@@ -121,7 +156,7 @@ module TLSmap
         nil
       end
 
-      protected :parse_tech, :parse_vuln
+      protected :parse_tech, :parse_vuln, :fetch_ciphersuite
     end
   end
 end

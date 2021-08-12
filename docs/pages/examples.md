@@ -140,6 +140,66 @@ TLS_RSA_WITH_RC4_128_SHA
 TLS_RSA_WITH_RC4_128_MD5
 ```
 
+Hide weak cipher suites while extracting (show only strong ones):
+
+```
+$ tls-map extract test/file_sample/testssl.json testssl --hide-weak
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_AES_256_GCM_SHA384
+TLS_CHACHA20_POLY1305_SHA256
+TLS_AES_128_GCM_SHA256
+```
+
+Show only weak cipher suites while extracting:
+
+```
+$ tls-map extract test/file_sample/sslyze.json sslyze --only-weak
+TLS_RSA_WITH_SEED_CBC_SHA
+TLS_RSA_WITH_CAMELLIA_256_CBC_SHA
+TLS_RSA_WITH_CAMELLIA_128_CBC_SHA
+TLS_RSA_WITH_AES_256_CBC_SHA
+TLS_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_DHE_RSA_WITH_SEED_CBC_SHA
+TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA
+TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_RSA_WITH_SEED_CBC_SHA
+TLS_RSA_WITH_CAMELLIA_256_CBC_SHA
+TLS_RSA_WITH_CAMELLIA_128_CBC_SHA
+TLS_RSA_WITH_AES_256_CBC_SHA
+TLS_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_DHE_RSA_WITH_SEED_CBC_SHA
+TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA
+TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_RSA_WITH_SEED_CBC_SHA
+TLS_RSA_WITH_CAMELLIA_256_CBC_SHA
+TLS_RSA_WITH_CAMELLIA_128_CBC_SHA
+TLS_RSA_WITH_AES_256_CBC_SHA
+TLS_RSA_WITH_AES_128_GCM_SHA256
+TLS_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_DHE_RSA_WITH_SEED_CBC_SHA
+TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA
+TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA256
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+```
+
 ### Update
 
 The CLI is working with an offline database (Marshaled Ruby hash) to avoid
@@ -310,4 +370,103 @@ tm.bulk_search(:iana, 'test/file_sample/bulk_IANA.txt')
 #  {},
 #  {:codepoint=>"1303", :iana=>"TLS_CHACHA20_POLY1305_SHA256", :openssl=>"TLS_CHACHA20_POLY1305_SHA256", # :gnutls=>"CHACHA20_POLY1305_SHA256", :nss=>"TLS_CHACHA20_POLY1305_SHA256"},
 #  {:codepoint=>"1302", :iana=>"TLS_AES_256_GCM_SHA384", :openssl=>"TLS_AES_256_GCM_SHA384", :gnutls=>"AES_256_GCM_SHA384", # :nss=>"TLS_AES_256_GCM_SHA384"}]
+```
+
+Manipulate a cipher suite:
+
+```ruby
+require 'tls_map'
+
+ci = TLSmap::App::Cipher.new(:iana, 'TLS_RSA_WITH_SEED_CBC_SHA')
+
+# Get the OpenSSL name
+ci.openssl
+# => "SEED-SHA"
+
+# Try to get the GnuTLS one (output is nil because it's not implemented in GnuTLS)
+ci.gnutls
+# => nil
+
+# Some boolean checker
+ci.weak?
+# => true
+ci.vulnerable?
+# => true
+ci.should_i_use?
+# => false
+
+# Get the vulnerabilities
+ci.extended['vulns']
+# =>
+# [{:severity=>1, :description=>"This key exchange algorithm does not support Perfect Forward Secrecy (PFS) which is recommended, so attackers cannot decrypt the complete communication stream."},
+#  {:severity=>1,
+#   :description=>
+#    "In 2013, researchers demonstrated a timing attack against several TLS implementations using the CBC encryption algorithm (see [isg.rhul.ac.uk](http://www.isg.rhul.ac.uk/tls/Lucky13.html)). Additionally, the CBC mode is vulnerable to plain-text attacks in TLS 1.0, SSL 3.0 and lower. A fix has been introduced with TLS 1.2 in form of the GCM mode which is not vulnerable to the BEAST attack. GCM should be preferred over CBC."},
+#  {:severity=>1, :description=>"The Secure Hash Algorithm 1 has been proven to be insecure as of 2017 (see [shattered.io](https://shattered.io))."}]
+
+# Get the TLS version it is implemented in
+ci.extended['tls_version']
+# => ["TLS1.0", "TLS1.1", "TLS1.2"]
+```
+
+By default the `Cipher` class will use the offline database for TLS library
+conversions (eg. OpenSSL to IANA name) and online API call to retrieve
+advanced information such as the details about key exchange algorithm, authentication algorithm,
+vulnerabilities, etc.
+
+Bulk usage of cipher manipulation can be slow if we use the regular way to get
+advanced information (online),
+because we will have to make one HTTP request per cipher suite. 
+
+One solution is to pre-feed the `Cipher` class with one fetch-all call to the API.
+This way we still have the most up-to-date data.
+
+```ruby
+require 'tls_map'
+
+# Get ONCE the advanced data about all cipher suites
+tmext = TLSmap::App::Extended.new
+tmext.enhance_all
+# Note: The data is accessible via tmext.enhanced_data
+
+# Now each time we want to manipulate a cipher we can feed the Cipher
+# class with the pre-fetched data.
+# If we have to use this in a loop for hundreds or thousands of cipher suites
+# there is no new HTTP call.
+ci = TLSmap::App::Cipher.new(:iana, 'TLS_DH_anon_WITH_RC4_128_MD5', enhanced_data: tmext.enhanced_data)
+ci.insecure?
+# => true
+```
+
+Another solution which has even better performance is to use the offline database
+to pre-feed the `Cipher` class.
+
+```ruby
+require 'tls_map'
+
+# Load advanced data from the offline database
+cliext = TLSmap::CLI::Extended.new
+
+# Load pre-fetched data into the Cipher class
+ci = TLSmap::App::Cipher.new(:iana, 'TLS_DH_anon_WITH_RC4_128_MD5', enhanced_data: cliext.enhanced_data)
+```
+
+Of course if you have only to access TLS names you don't need to bother with that
+because advanced information are not fetch during the initialization but only when
+a method needing it is called.
+
+But at the contrary, the `Cipher` class is using the offline database for TLS
+name by default to have a decent execution time, but if you want to be sure to
+have the latest data available (directly fetched from upstream DVCS) you can
+pre-fetch and feed the `Cipher` class too in a manner similar to what we did
+earlier with the advanced data.
+
+```ruby
+require 'tls_map'
+
+# Pre-fetch basic TLS data from the main class
+tm = TLSmap::App.new
+
+# Feed it into the cipher class
+ci = TLSmap::App::Cipher.new(:iana, 'TLS_DH_anon_WITH_RC4_128_MD5', tls_map: tm.tls_map)
 ```

@@ -95,7 +95,7 @@
   <dl>
     <dt>Defined in:</dt>
     <dd>lib/tls_map.rb<span class="defines">,<br />
-  lib/tls_map/cipher.rb,<br /> lib/tls_map/app/nss.rb,<br /> lib/tls_map/app/iana.rb,<br /> lib/tls_map/app/gnutls.rb,<br /> lib/tls_map/app/output.rb,<br /> lib/tls_map/app/openssl.rb,<br /> lib/tls_map/app/extractor/extractor.rb,<br /> lib/tls_map/app/extended/ciphersuiteinfo.rb</span>
+  lib/tls_map/app/nss.rb,<br /> lib/tls_map/app/iana.rb,<br /> lib/tls_map/app/gnutls.rb,<br /> lib/tls_map/app/output.rb,<br /> lib/tls_map/app/openssl.rb,<br /> lib/tls_map/app/cipher/cipher.rb,<br /> lib/tls_map/app/extractor/extractor.rb,<br /> lib/tls_map/app/extended/ciphersuiteinfo.rb</span>
 </dd>
   </dl>
   
@@ -121,7 +121,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="App/Extended.html" title="TLSmap::App::Extended (class)">Extended</a></span>, <span class='object_link'><a href="App/Extractor.html" title="TLSmap::App::Extractor (class)">Extractor</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="App/Cipher.html" title="TLSmap::App::Cipher (class)">Cipher</a></span>, <span class='object_link'><a href="App/Extended.html" title="TLSmap::App::Extended (class)">Extended</a></span>, <span class='object_link'><a href="App/Extractor.html" title="TLSmap::App::Extractor (class)">Extractor</a></span>
     
   
 </p>
@@ -148,27 +148,27 @@ so use github RO mirror instead.</p>
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://raw.githubusercontent.com/nss-dev/nss/master/lib/ssl/sslproto.h</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://raw.githubusercontent.com/nss-dev/nss/master/lib/ssl/sslproto.h</span><span style="color:#710">'</span></span></pre></dd>
       
         <dt id="IANA_URL-constant" class="">IANA_URL =
           
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://www.iana.org/assignments/tls-parameters/tls-parameters-4.csv</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://www.iana.org/assignments/tls-parameters/tls-parameters-4.csv</span><span style="color:#710">'</span></span></pre></dd>
       
         <dt id="GNUTLS_URL-constant" class="">GNUTLS_URL =
           
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://gitlab.com/gnutls/gnutls/raw/master/lib/algorithms/ciphersuites.c</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://gitlab.com/gnutls/gnutls/raw/master/lib/algorithms/ciphersuites.c</span><span style="color:#710">'</span></span></pre></dd>
       
         <dt id="OPENSSL_URL-constant" class="">OPENSSL_URL =
           
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://raw.githubusercontent.com/openssl/openssl/master/include/openssl/tls1.h</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://raw.githubusercontent.com/openssl/openssl/master/include/openssl/tls1.h</span><span style="color:#710">'</span></span></pre></dd>
       
         <dt id="OPENSSL_URL2-constant" class="">OPENSSL_URL2 =
           
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://raw.githubusercontent.com/openssl/openssl/master/include/openssl/ssl3.h</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://raw.githubusercontent.com/openssl/openssl/master/include/openssl/ssl3.h</span><span style="color:#710">'</span></span></pre></dd>
       
     </dl>
   
@@ -176,9 +176,74 @@ so use github RO mirror instead.</p>
 
 
 
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tls_map-instance_method" title="#tls_map (instance method)">#<strong>tls_map</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get the mapping of all TLS cipher suites.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
 
 
 
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#search-class_method" title="search (class method)">.<strong>search</strong>(tls_map, criteria, term, output = :all)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Stateless version of <span class='object_link'><a href="#search-instance_method" title="TLSmap::App#search (method)">#search</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
   
     <h2>
       Instance Method Summary
@@ -190,7 +255,7 @@ so use github RO mirror instead.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#bulk_search-instance_method" title="#bulk_search (instance method)">#<strong>bulk_search</strong>(critera, file, output = :all)  &#x21d2; Array&lt;Hash&gt; </a>
+      <a href="#bulk_search-instance_method" title="#bulk_search (instance method)">#<strong>bulk_search</strong>(criteria, file, output = :all)  &#x21d2; Array&lt;Hash&gt; </a>
     
 
     
@@ -261,7 +326,7 @@ so use github RO mirror instead.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#search-instance_method" title="#search (instance method)">#<strong>search</strong>(critera, term, output = :all)  &#x21d2; Hash </a>
+      <a href="#search-instance_method" title="#search (instance method)">#<strong>search</strong>(criteria, term, output = :all)  &#x21d2; Hash </a>
     
 
     
@@ -312,30 +377,30 @@ so use github RO mirror instead.</p>
       <pre class="lines">
 
 
-21
-22
-23
-24
-25
 26
 27
 28
 29
-30</pre>
+30
+31
+32
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map.rb', line 26</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
-  <span class='ivar'>@iana_file</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Utils.html" title="TLSmap::Utils (module)">Utils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_tmpfile'><span class='object_link'><a href="Utils.html#tmpfile-class_method" title="TLSmap::Utils.tmpfile (method)">tmpfile</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>iana</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#IANA_URL-constant" title="TLSmap::App::IANA_URL (constant)">IANA_URL</a></span></span><span class='rparen'>)</span>
-  <span class='ivar'>@openssl_file</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Utils.html" title="TLSmap::Utils (module)">Utils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_tmpfile'><span class='object_link'><a href="Utils.html#tmpfile-class_method" title="TLSmap::Utils.tmpfile (method)">tmpfile</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>openssl</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#OPENSSL_URL-constant" title="TLSmap::App::OPENSSL_URL (constant)">OPENSSL_URL</a></span></span><span class='rparen'>)</span>
-  <span class='ivar'>@openssl_file2</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Utils.html" title="TLSmap::Utils (module)">Utils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_tmpfile'><span class='object_link'><a href="Utils.html#tmpfile-class_method" title="TLSmap::Utils.tmpfile (method)">tmpfile</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>openssl</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#OPENSSL_URL2-constant" title="TLSmap::App::OPENSSL_URL2 (constant)">OPENSSL_URL2</a></span></span><span class='rparen'>)</span>
-  <span class='ivar'>@gnutls_file</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Utils.html" title="TLSmap::Utils (module)">Utils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_tmpfile'><span class='object_link'><a href="Utils.html#tmpfile-class_method" title="TLSmap::Utils.tmpfile (method)">tmpfile</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gnutls</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#GNUTLS_URL-constant" title="TLSmap::App::GNUTLS_URL (constant)">GNUTLS_URL</a></span></span><span class='rparen'>)</span>
-  <span class='ivar'>@nss_file</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Utils.html" title="TLSmap::Utils (module)">Utils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_tmpfile'><span class='object_link'><a href="Utils.html#tmpfile-class_method" title="TLSmap::Utils.tmpfile (method)">tmpfile</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nss</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#NSS_URL-constant" title="TLSmap::App::NSS_URL (constant)">NSS_URL</a></span></span><span class='rparen'>)</span>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">initialize</span>
+  <span style="color:#33B">@iana_file</span> = <span style="color:#036;font-weight:bold">Utils</span>.tmpfile(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">iana</span><span style="color:#710">'</span></span>, <span style="color:#036;font-weight:bold">IANA_URL</span>)
+  <span style="color:#33B">@openssl_file</span> = <span style="color:#036;font-weight:bold">Utils</span>.tmpfile(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">openssl</span><span style="color:#710">'</span></span>, <span style="color:#036;font-weight:bold">OPENSSL_URL</span>)
+  <span style="color:#33B">@openssl_file2</span> = <span style="color:#036;font-weight:bold">Utils</span>.tmpfile(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">openssl</span><span style="color:#710">'</span></span>, <span style="color:#036;font-weight:bold">OPENSSL_URL2</span>)
+  <span style="color:#33B">@gnutls_file</span> = <span style="color:#036;font-weight:bold">Utils</span>.tmpfile(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">gnutls</span><span style="color:#710">'</span></span>, <span style="color:#036;font-weight:bold">GNUTLS_URL</span>)
+  <span style="color:#33B">@nss_file</span> = <span style="color:#036;font-weight:bold">Utils</span>.tmpfile(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">nss</span><span style="color:#710">'</span></span>, <span style="color:#036;font-weight:bold">NSS_URL</span>)
 
-  <span class='ivar'>@tls_map</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_parse'>parse</span>
-<span class='kw'>end</span></pre>
+  <span style="color:#33B">@tls_map</span> = []
+  parse
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -343,6 +408,217 @@ so use github RO mirror instead.</p>
   
 </div>
 
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="tls_map-instance_method">
+  
+    #<strong>tls_map</strong>  &#x21d2; <tt>Hash</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get the mapping of all TLS cipher suites</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>mapping of all TLS cipher suites</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tls_map.rb', line 23</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">tls_map</span>
+  <span style="color:#33B">@tls_map</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="search-class_method">
+  
+    .<strong>search</strong>(tls_map, criteria, term, output = :all)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Stateless version of <span class='object_link'><a href="#search-instance_method" title="TLSmap::App#search (method)">#search</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>tm = <span style="color:#036;font-weight:bold">TLSmap</span>::<span style="color:#036;font-weight:bold">App</span>.new
+<span style="color:#036;font-weight:bold">TLSmap</span>::<span style="color:#036;font-weight:bold">App</span>.search(tm.tls_map, <span style="color:#A60">:iana</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256</span><span style="color:#710">'</span></span>)
+<span style="color:#777"># =&gt; {:codepoint=&gt;&quot;CCA9&quot;, :iana=&gt;&quot;TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256&quot;,</span>
+      <span style="color:#A60">:openssl</span>=&gt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">ECDHE-ECDSA-CHACHA20-POLY1305</span><span style="color:#710">&quot;</span></span>, <span style="color:#A60">:gnutls</span>=&gt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">ECDHE_ECDSA_CHACHA20_POLY1305</span><span style="color:#710">&quot;</span></span>,
+      <span style="color:#A60">:nss</span>=&gt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256</span><span style="color:#710">&quot;</span></span>}
+<span style="color:#777"># or to use with the Cipher class</span>
+ci = <span style="color:#036;font-weight:bold">TLSmap</span>::<span style="color:#036;font-weight:bold">App</span>::<span style="color:#036;font-weight:bold">Cipher</span>.new(<span style="color:#A60">:iana</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS_DH_anon_WITH_RC4_128_MD5</span><span style="color:#710">'</span></span>, tm.tls_map)</code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>tls_map</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>mapping of all TLS cipher suites returned by <span class='object_link'><a href="#tls_map-instance_method" title="TLSmap::App#tls_map (method)">#tls_map</a></span>.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>criteria</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Same as <code>criteria</code> from <span class='object_link'><a href="#search-instance_method" title="TLSmap::App#search (method)">#search</a></span></p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>term</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Same as <code>term</code> from <span class='object_link'><a href="#search-instance_method" title="TLSmap::App#search (method)">#search</a></span></p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>output</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:all</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Same as <code>output</code> from <span class='object_link'><a href="#search-instance_method" title="TLSmap::App#search (method)">#search</a></span></p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#search-instance_method" title="TLSmap::App#search (method)">#search</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tls_map.rb', line 77</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">search</span>(tls_map, criteria, term, output = <span style="color:#A60">:all</span>)
+  tls_map.each <span style="color:#080;font-weight:bold">do</span> |alg|
+    term = term.upcase <span style="color:#080;font-weight:bold">if</span> criteria == <span style="color:#A60">:codepoint</span>
+    <span style="color:#080;font-weight:bold">next</span> <span style="color:#080;font-weight:bold">unless</span> alg[criteria] == term
+    <span style="color:#080;font-weight:bold">return</span> alg <span style="color:#080;font-weight:bold">if</span> output == <span style="color:#A60">:all</span>
+
+    <span style="color:#080;font-weight:bold">return</span> { output =&gt; alg[output] }
+  <span style="color:#080;font-weight:bold">end</span>
+  {}
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -351,7 +627,7 @@ so use github RO mirror instead.</p>
       <div class="method_details first">
   <h3 class="signature first" id="bulk_search-instance_method">
   
-    #<strong>bulk_search</strong>(critera, file, output = :all)  &#x21d2; <tt>Array&lt;Hash&gt;</tt> 
+    #<strong>bulk_search</strong>(criteria, file, output = :all)  &#x21d2; <tt>Array&lt;Hash&gt;</tt> 
   
 
   
@@ -370,7 +646,7 @@ so use github RO mirror instead.</p>
   
     <li>
       
-        <span class='name'>critera</span>
+        <span class='name'>criteria</span>
       
       
         <span class='type'>(<tt>Symbol</tt>)</span>
@@ -431,7 +707,7 @@ Accepted values: <code>:all</code> (default), <code>:codepoint</code>, <code>:ia
       
       
         &mdash;
-        <div class='inline'><p>The corresponding type, same as <span class='object_link'><a href="#search-instance_method" title="TLSmap::App#search (method)">#search</a></span> return value
+        <div class='inline'><p>The corresponding type, same as <span class='object_link'><a href="#search-class_method" title="TLSmap::App.search (method)">search</a></span> return value
 but one per line stored in an array.</p>
 </div>
       
@@ -445,24 +721,24 @@ but one per line stored in an array.</p>
       <pre class="lines">
 
 
-67
-68
-69
-70
-71
-72
-73</pre>
+97
+98
+99
+100
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map.rb', line 97</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_bulk_search'>bulk_search</span><span class='lparen'>(</span><span class='id identifier rubyid_critera'>critera</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='comma'>,</span> <span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='symbol'>:all</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_foreach'>foreach</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span>
-    <span class='id identifier rubyid_res'>res</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_search'>search</span><span class='lparen'>(</span><span class='id identifier rubyid_critera'>critera</span><span class='comma'>,</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span><span class='comma'>,</span> <span class='id identifier rubyid_output'>output</span><span class='rparen'>)</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
-  <span class='id identifier rubyid_res'>res</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">bulk_search</span>(criteria, file, output = <span style="color:#A60">:all</span>)
+  res = []
+  <span style="color:#036;font-weight:bold">File</span>.foreach(file) <span style="color:#080;font-weight:bold">do</span> |line|
+    res.push(search(criteria, line.chomp, output))
+  <span style="color:#080;font-weight:bold">end</span>
+  res
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -542,15 +818,15 @@ but one per line stored in an array.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/tls_map/app/output.rb', line 41</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_export'>export</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='id identifier rubyid_format'>format</span><span class='rparen'>)</span>
-  <span class='kw'>case</span> <span class='id identifier rubyid_format'>format</span>
-  <span class='kw'>when</span> <span class='symbol'>:markdown</span>      <span class='kw'>then</span> <span class='id identifier rubyid_output_markdown'>output_markdown</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
-  <span class='kw'>when</span> <span class='symbol'>:json_pretty</span>   <span class='kw'>then</span> <span class='id identifier rubyid_output_json_pretty'>output_json_pretty</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
-  <span class='kw'>when</span> <span class='symbol'>:json_compact</span>  <span class='kw'>then</span> <span class='id identifier rubyid_output_json_compact'>output_json_compact</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
-  <span class='kw'>when</span> <span class='symbol'>:marshal</span>       <span class='kw'>then</span> <span class='id identifier rubyid_output_marshal'>output_marshal</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
-  <span class='kw'>else</span>                     <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Wrong format: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_format'>format</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">export</span>(filename, format)
+  <span style="color:#080;font-weight:bold">case</span> format
+  <span style="color:#080;font-weight:bold">when</span> <span style="color:#A60">:markdown</span>      <span style="color:#080;font-weight:bold">then</span> output_markdown(filename)
+  <span style="color:#080;font-weight:bold">when</span> <span style="color:#A60">:json_pretty</span>   <span style="color:#080;font-weight:bold">then</span> output_json_pretty(filename)
+  <span style="color:#080;font-weight:bold">when</span> <span style="color:#A60">:json_compact</span>  <span style="color:#080;font-weight:bold">then</span> output_json_compact(filename)
+  <span style="color:#080;font-weight:bold">when</span> <span style="color:#A60">:marshal</span>       <span style="color:#080;font-weight:bold">then</span> output_marshal(filename)
+  <span style="color:#080;font-weight:bold">else</span>                     raise <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Wrong format: </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>format<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -559,7 +835,7 @@ but one per line stored in an array.</p>
       <div class="method_details ">
   <h3 class="signature " id="search-instance_method">
   
-    #<strong>search</strong>(critera, term, output = :all)  &#x21d2; <tt>Hash</tt> 
+    #<strong>search</strong>(criteria, term, output = :all)  &#x21d2; <tt>Hash</tt> 
   
 
   
@@ -578,7 +854,7 @@ but one per line stored in an array.</p>
   
     <li>
       
-        <span class='name'>critera</span>
+        <span class='name'>criteria</span>
       
       
         <span class='type'>(<tt>Symbol</tt>)</span>
@@ -652,30 +928,30 @@ Accepted values: <code>:all</code> (default), <code>:codepoint</code>, <code>:ia
       <pre class="lines">
 
 
-47
-48
-49
-50
-51
 52
 53
 54
 55
-56</pre>
+56
+57
+58
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map.rb', line 52</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_search'>search</span><span class='lparen'>(</span><span class='id identifier rubyid_critera'>critera</span><span class='comma'>,</span> <span class='id identifier rubyid_term'>term</span><span class='comma'>,</span> <span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='symbol'>:all</span><span class='rparen'>)</span>
-  <span class='ivar'>@tls_map</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_alg'>alg</span><span class='op'>|</span>
-    <span class='id identifier rubyid_term'>term</span> <span class='op'>=</span> <span class='id identifier rubyid_term'>term</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span> <span class='kw'>if</span> <span class='id identifier rubyid_critera'>critera</span> <span class='op'>==</span> <span class='symbol'>:codepoint</span>
-    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_alg'>alg</span><span class='lbracket'>[</span><span class='id identifier rubyid_critera'>critera</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id identifier rubyid_term'>term</span>
-    <span class='kw'>return</span> <span class='id identifier rubyid_alg'>alg</span> <span class='kw'>if</span> <span class='id identifier rubyid_output'>output</span> <span class='op'>==</span> <span class='symbol'>:all</span>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">search</span>(criteria, term, output = <span style="color:#A60">:all</span>)
+  <span style="color:#33B">@tls_map</span>.each <span style="color:#080;font-weight:bold">do</span> |alg|
+    term = term.upcase <span style="color:#080;font-weight:bold">if</span> criteria == <span style="color:#A60">:codepoint</span>
+    <span style="color:#080;font-weight:bold">next</span> <span style="color:#080;font-weight:bold">unless</span> alg[criteria] == term
+    <span style="color:#080;font-weight:bold">return</span> alg <span style="color:#080;font-weight:bold">if</span> output == <span style="color:#A60">:all</span>
 
-    <span class='kw'>return</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_output'>output</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_alg'>alg</span><span class='lbracket'>[</span><span class='id identifier rubyid_output'>output</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
-  <span class='kw'>end</span>
-  <span class='lbrace'>{</span><span class='rbrace'>}</span>
-<span class='kw'>end</span></pre>
+    <span style="color:#080;font-weight:bold">return</span> { output =&gt; alg[output] }
+  <span style="color:#080;font-weight:bold">end</span>
+  {}
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -686,7 +962,7 @@ Accepted values: <code>:all</code> (default), <code>:codepoint</code>, <code>:ia
 </div>
 
       <div id="footer">
-  Generated on Tue Aug 10 17:33:23 2021 by
+  Generated on Thu Aug 12 21:29:17 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>

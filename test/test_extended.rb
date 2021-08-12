@@ -23,6 +23,9 @@ class TLSmapExtendedTest < Minitest::Test
     assert_equal('SHA', data['hash_algorithm'])
     assert_equal('insecure', data['security'])
     assert_equal('https://ciphersuite.info/cs/TLS_RSA_WITH_RC4_128_SHA/', data['url'])
+    @ext.enhance_all
+    assert_equal(@ext.enhanced_data[cipher], data)
+    assert_equal(data,@ext.extend(cipher, true))
   end
 
   def test_App_Extended_translate_acronym

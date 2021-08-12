@@ -12,26 +12,26 @@ See [Installation](/pages/install)
 
 ```plaintext
 $ tls-map --help
-TLS map 1.3.0
+TLS map 2.0.0
 
 Usage:
-  tls-map search <critera> <term> [-o <output> --force -e -a] [--no-color --debug]
-  tls-map bulk <critera> <file> [-q <output> --force] [--no-color --debug]
+  tls-map search <criteria> <term> [-o <output> --force -e -a] [--no-color --debug]
+  tls-map bulk <criteria> <file> [-q <output> --force] [--no-color --debug]
   tls-map export <filename> <format> [--force] [--debug]
-  tls-map extract <filename> <format> [--no-color --debug]
-  tls-map update [--debug]
+  tls-map extract <filename> <format> [--no-color --debug [--only-weak | --hide-weak]]
+  tls-map update [--with-extended] [--debug]
   tls-map -h | --help
   tls-map --version
 
 Search options: (offline) search and translate cipher names between SSL/TLS libraries
-  <critera>               The type of term. Accepted values: codepoint, iana, openssl, gnutls, nss.
+  <criteria>              The type of term. Accepted values: codepoint, iana, openssl, gnutls, nss.
   <term>                  The cipher algorithm name.
   -o, --output <output>   Displayed fields. Accepted values: all, codepoint, iana, openssl, gnutls, nss. [default: all]
   -e, --extended          (Online) Display additional information about the cipher (requires output = all or iana)
   -a, --acronym           (Online) Display full acronym name (requires -e / --extended option)
 
 Bulk options: (offline) search and translate cipher names between SSL/TLS libraries in bulk
-  <critera>               The type of term. Accepted values: codepoint, iana, openssl, gnutls, nss.
+  <criteria>              The type of term. Accepted values: codepoint, iana, openssl, gnutls, nss.
   <file>                  File containing the cipher algorithm names, one per line.
   -q, --output2 <output>  Displayed fields. Accepted values: codepoint, iana, openssl, gnutls, nss. [default: iana]
 
@@ -42,8 +42,11 @@ Export options: (offline) export the list of all ciphers (mapping) in various fo
 Extract options: (offline) extract ciphers from external tools output file
   <filename>              The external tool output file
   <format>                Supported formats: sslyze, sslscan2, testssl, ssllabs-scan (check the documentation for the expected file format)
+  --only-weak             Show only ciphers with a security level equal to weak or insecure (hide secure and recommended) (work only with TLS not SSL).
+  --hide-weak             Hide ciphers with a security level equal to weak or insecure (show only secure and recommended) (work only with TLS not SSL).
 
 Update options: (online) DANGEROUS, will break database integrity, force option will be required
+  --with-extended         (Online) Also save extended information used by search --extended option.
 
 Other options:
   --force     Force parsing even if integrity check failed (DANGEROUS, may result in command execution vulnerability)

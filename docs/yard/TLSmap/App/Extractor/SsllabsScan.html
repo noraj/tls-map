@@ -281,20 +281,20 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 245</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_extract_cipher'>extract_cipher</span><span class='lparen'>(</span><span class='id identifier rubyid_json_data'>json_data</span><span class='rparen'>)</span> <span class='comment'># rubocop:disable Metrics/MethodLength
-</span>  <span class='id identifier rubyid_raw'>raw</span> <span class='op'>=</span> <span class='lbrace'>{</span>
-    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSL2.0</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSL3.0</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLS1.0</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLS1.1</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLS1.2</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLS1.3</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='rbrace'>}</span>
-  <span class='id identifier rubyid_json_data'>json_data</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>endpoints</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_endpoint'>endpoint</span><span class='op'>|</span>
-    <span class='id identifier rubyid_endpoint'>endpoint</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>details</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>suites</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_suite'>suite</span><span class='op'>|</span>
-      <span class='id identifier rubyid_suite'>suite</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>list</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cipher'>cipher</span><span class='op'>|</span>
-        <span class='id identifier rubyid_raw'>raw</span><span class='lbracket'>[</span><span class='id identifier rubyid_id2prot'>id2prot</span><span class='lparen'>(</span><span class='id identifier rubyid_suite'>suite</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>protocol</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_cipher'>cipher</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
-      <span class='kw'>end</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-  <span class='id identifier rubyid_raw'>raw</span><span class='period'>.</span><span class='id identifier rubyid_transform_values'>transform_values</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:uniq</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">extract_cipher</span>(json_data) <span style="color:#777"># rubocop:disable Metrics/MethodLength</span>
+  raw = {
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SSL2.0</span><span style="color:#710">'</span></span> =&gt; [], <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SSL3.0</span><span style="color:#710">'</span></span> =&gt; [],
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.0</span><span style="color:#710">'</span></span> =&gt; [], <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.1</span><span style="color:#710">'</span></span> =&gt; [], <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.2</span><span style="color:#710">'</span></span> =&gt; [], <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.3</span><span style="color:#710">'</span></span> =&gt; []
+  }
+  json_data[<span style="color:#00D">0</span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">endpoints</span><span style="color:#710">'</span></span>].each <span style="color:#080;font-weight:bold">do</span> |endpoint|
+    endpoint[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">details</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">suites</span><span style="color:#710">'</span></span>].each <span style="color:#080;font-weight:bold">do</span> |suite|
+      suite[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">list</span><span style="color:#710">'</span></span>].each <span style="color:#080;font-weight:bold">do</span> |cipher|
+        raw[id2prot(suite[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">protocol</span><span style="color:#710">'</span></span>])].push(cipher[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name</span><span style="color:#710">'</span></span>])
+      <span style="color:#080;font-weight:bold">end</span>
+    <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">end</span>
+  raw.transform_values(&amp;<span style="color:#A60">:uniq</span>)
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -372,13 +372,13 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 263</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_id2prot'>id2prot</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_prot'>prot</span> <span class='op'>=</span> <span class='lbrace'>{</span>
-    <span class='int'>512</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSL2.0</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>768</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSL3.0</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>769</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLS1.0</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-    <span class='int'>770</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLS1.1</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>771</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLS1.2</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>772</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLS1.3</span><span class='tstring_end'>&#39;</span></span>
-  <span class='rbrace'>}</span>
-  <span class='id identifier rubyid_prot'>prot</span><span class='lbracket'>[</span><span class='id identifier rubyid_id'>id</span><span class='rbracket'>]</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">id2prot</span>(id)
+  prot = {
+    <span style="color:#00D">512</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SSL2.0</span><span style="color:#710">'</span></span>, <span style="color:#00D">768</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SSL3.0</span><span style="color:#710">'</span></span>, <span style="color:#00D">769</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.0</span><span style="color:#710">'</span></span>,
+    <span style="color:#00D">770</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.1</span><span style="color:#710">'</span></span>, <span style="color:#00D">771</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.2</span><span style="color:#710">'</span></span>, <span style="color:#00D">772</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.3</span><span style="color:#710">'</span></span>
+  }
+  prot[id]
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -454,10 +454,10 @@ See <span class='object_link'><a href="../Extractor.html" title="TLSmap::App::Ex
     <td>
       <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 237</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Utils.html" title="TLSmap::Utils (module)">Utils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_json_load_file'><span class='object_link'><a href="../../Utils.html#json_load_file-class_method" title="TLSmap::Utils.json_load_file (method)">json_load_file</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_extract_cipher'>extract_cipher</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">parse</span>(file)
+  data = <span style="color:#036;font-weight:bold">Utils</span>.json_load_file(file)
+  extract_cipher(data)
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -468,7 +468,7 @@ See <span class='object_link'><a href="../Extractor.html" title="TLSmap::App::Ex
 </div>
 
       <div id="footer">
-  Generated on Tue Aug 10 17:33:23 2021 by
+  Generated on Thu Aug 12 21:29:17 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>
