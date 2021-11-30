@@ -21,17 +21,18 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.metadata = {
-    'yard.run'          => 'yard',
-    'bug_tracker_uri'   => 'https://github.com/noraj/tls-map/issues',
-    'changelog_uri'     => 'https://github.com/noraj/tls-map/blob/master/docs/CHANGELOG.md',
-    'documentation_uri' => 'https://noraj.github.io/tls-map/yard/',
-    'homepage_uri'      => 'https://noraj.github.io/tls-map/',
-    'source_code_uri'   => 'https://github.com/noraj/tls-map/'
+    'yard.run'              => 'yard',
+    'bug_tracker_uri'       => 'https://github.com/noraj/tls-map/issues',
+    'changelog_uri'         => 'https://github.com/noraj/tls-map/blob/master/docs/CHANGELOG.md',
+    'documentation_uri'     => 'https://noraj.github.io/tls-map/yard/',
+    'homepage_uri'          => 'https://noraj.github.io/tls-map/',
+    'source_code_uri'       => 'https://github.com/noraj/tls-map/',
+    'rubygems_mfa_required' => 'true'
   }
 
   s.required_ruby_version = ['>= 2.6.0', '< 3.1']
 
   s.add_runtime_dependency('docopt', '~> 0.6') # for argument parsing
-  s.add_runtime_dependency('paint', '~> 2.2') # for colorized ouput
+  s.add_runtime_dependency('paint', '~> 2.2') # for colorized output
   s.add_runtime_dependency('rexml', '~> 3.2') # XML parser
 end

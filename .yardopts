@@ -1,6 +1,6 @@
 --output-dir docs/yard
---markup=markdown
---markup-provider=redcarpet
+--markup markdown
+--markup-provider commonmarker
 --plugin coderay
 -
 --main README.md

@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased]
+
+- Chore:
+  - Add CodeQL security code review
+- Dependencies:
+  - Update to yard [v0.9.27](https://github.com/lsegal/yard/releases/tag/v0.9.27)
+    - Move from Redcarpet to CommonMarker markdown provider
+
 ## [2.0.0]
 
 **BREAKING CHANGES:**

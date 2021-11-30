@@ -6,7 +6,7 @@
 <title>
   Class: TLSmap::App::Extractor
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.27
   
 </title>
 
@@ -102,28 +102,25 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     <p>External tools output data extractor</p>
-
 <p>Output files from <a href="https://github.com/nabla-c0d3/sslyze">SSLyze</a> (JSON), <a href="https://github.com/rbsec/sslscan">sslscan2</a> (XML), <a href="https://github.com/drwetter/testssl.sh">testssl.sh</a> (JSON), <a href="https://github.com/ssllabs/ssllabs-scan">ssllabs-scan</a> (JSON)</p>
-
 <p>Example of commands:</p>
-
 <ul>
 <li><code>sslyze --json_out=example.org.json example.org</code></li>
 <li><code>sslscan2 --show-cipher-ids --xml=example.org.xml example.org</code>
-
 <ul>
 <li><code>--show-cipher-ids</code> is mandatory else ciphers are not saved to the output</li>
-</ul></li>
+</ul>
+</li>
 <li><code>testssl --jsonfile-pretty example.org.json --mapping no-openssl --cipher-per-proto example.org</code>
-
 <ul>
-<li>json-pretty is the only supported format, default json or csv, html won&#39;t work</li>
-</ul></li>
+<li>json-pretty is the only supported format, default json or csv, html won't work</li>
+</ul>
+</li>
 <li><code>ssllabs-scan --quiet example.org &gt; example.org.json</code>
-
 <ul>
-<li>The default output is the only supported format, using <code>-json-flat</code> won&#39;t work</li>
-</ul></li>
+<li>The default output is the only supported format, using <code>-json-flat</code> won't work</li>
+</ul>
+</li>
 </ul>
 
 
@@ -937,9 +934,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Aug 12 22:11:41 2021 by
+  Generated on Tue Nov 30 19:38:28 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-3.0.2).
+  0.9.27 (ruby-3.0.2).
 </div>
 
     </div>

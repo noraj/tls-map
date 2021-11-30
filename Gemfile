@@ -34,9 +34,7 @@ group :development, :lint do
 end
 
 group :development, :docs do
-  gem 'github-markup', '~> 4.0' # for GMF support in YARD
-  gem 'redcarpet', '~> 3.5' # for GMF support in YARD
-  gem 'webrick', '~> 1.7' # for server support in YARD
-  gem 'yard', '~> 0.9'
+  gem 'commonmarker', '~> 0.21' # for markdown support in YARD
+  gem 'yard', ['>= 0.9.27', '< 0.10']
   gem 'yard-coderay', '~> 0.1' # for syntax highlight support in YARD
 end
