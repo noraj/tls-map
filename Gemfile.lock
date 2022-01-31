@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tls-map (2.0.0)
+    tls-map (2.1.0)
       docopt (~> 0.6)
       paint (~> 2.2)
       rexml (~> 3.2)
@@ -48,7 +48,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bundler (>= 2.1.0, < 2.3)
+  bundler (~> 2.1)
   commonmarker (~> 0.21)
   docopt (~> 0.6)
   minitest (~> 5.12)
@@ -62,4 +62,4 @@ DEPENDENCIES
   yard-coderay (~> 0.1)
 
 BUNDLED WITH
-   2.2.22
+   2.3.6

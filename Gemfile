@@ -18,7 +18,7 @@ end
 
 # Needed to install dependencies
 group :development, :install do
-  gem 'bundler', ['>= 2.1.0', '< 2.3']
+  gem 'bundler', '~> 2.1'
 end
 
 # Needed to run tests

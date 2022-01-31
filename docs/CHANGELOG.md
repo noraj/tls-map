@@ -2,8 +2,11 @@
 
 ## [Unreleased]
 
+## [2.1.0]
+
 - Chore:
   - Add CodeQL security code review
+  - Add support for Ruby 3.1
 - Dependencies:
   - Update to yard [v0.9.27](https://github.com/lsegal/yard/releases/tag/v0.9.27)
     - Move from Redcarpet to CommonMarker markdown provider
