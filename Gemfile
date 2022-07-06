@@ -8,7 +8,7 @@ gemspec
 # Needed for the CLI only
 group :runtime, :cli do
   gem 'docopt', '~> 0.6' # for argument parsing
-  gem 'paint', '~> 2.2' # for colorized ouput
+  gem 'paint', '~> 2.3' # for colorized ouput
 end
 
 # Needed for the CLI & library
