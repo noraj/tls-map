@@ -27,7 +27,7 @@ module TLSmap
     end
 
     def parse_iana
-      CSV.foreach(@iana_file.path, **{ headers: true, header_converters: :symbol }) do |alg|
+      CSV.foreach(@iana_file.path, headers: true, header_converters: :symbol) do |alg|
         codepoint = codepoint_iana(alg[:value])
         description = desc_iana(alg[:description])
         @tls_map << { codepoint: codepoint, iana: description } unless codepoint.nil? || description.nil?
