@@ -30,7 +30,7 @@ end
 
 # Needed for linting
 group :development, :lint do
-  gem 'rubocop', '~> 1.41'
+  gem 'rubocop', '~> 1.42'
 end
 
 group :development, :docs do
