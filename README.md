@@ -5,7 +5,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/noraj/tls-map)](https://github.com/noraj/tls-map/network)
 [![GitHub stars](https://img.shields.io/github/stars/noraj/tls-map)](https://github.com/noraj/tls-map/stargazers)
 [![GitHub license](https://img.shields.io/github/license/noraj/tls-map)](https://github.com/noraj/tls-map/blob/master/LICENSE.txt)
-[![Rawsec's CyberSecurity Inventory](https://inventory.rawsec.ml/img/badges/Rawsec-inventoried-FF5050_flat.svg)](https://inventory.rawsec.ml/tools.html#TLS%20map)
+[![Rawsec's CyberSecurity Inventory](https://inventory.raw.pm/img/badges/Rawsec-inventoried-FF5050_flat.svg)](https://inventory.raw.pm/tools.html#TLS%20map)
 
 [![Packaging status](https://repology.org/badge/vertical-allrepos/tls-map.svg)](https://repology.org/project/tls-map/versions)
 
