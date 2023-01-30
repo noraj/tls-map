@@ -5,6 +5,8 @@
 ## [2.2.0]
 
 - New support for `tlsx` in `TLSmap::App::Extractor` class (see [lib doc](https://noraj.github.io/tls-map/yard/TLSmap/App/Extractor))
+- Chore:
+  - Add support for Ruby 3.2
 
 ## [2.1.0]
 

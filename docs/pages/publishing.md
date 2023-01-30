@@ -5,7 +5,7 @@
 ```plaintext
 $ git tag -a vx.x.x
 $ git push --follow-tags
-$ gem push pass-station-x.x.x.gem
+$ gem push tls-map-x.x.x.gem
 ```
 
 See https://guides.rubygems.org/publishing/.
