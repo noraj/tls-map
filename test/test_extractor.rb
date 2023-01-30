@@ -39,4 +39,10 @@ class TLSmapExtractorTest < Minitest::Test
     assert(ex.parse('testssl', 'test/file_sample/testssl.json'))
     assert_includes(ex.ciphers['TLS1.2'], 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384')
   end
+
+  def test_App_Extractor_tlsx
+    ex = TLSmap::App::Extractor.new
+    assert(ex.parse('tlsx', 'test/file_sample/tlsx_newwebsite.json'))
+    assert_includes(ex.ciphers['TLS1.2'], 'TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA')
+  end
 end
