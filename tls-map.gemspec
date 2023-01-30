@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.summary       = 'CLI & library for TLS cipher suites manipulation'
   s.description   = 'CLI & library for mapping TLS cipher algorithm names: IANA, OpenSSL, GnuTLS, NSS;'
   s.description  += 'get information and vulnerabilities about cipher suites;'
-  s.description  += 'extract cipher suites from external tools: SSLyze, sslscan2, testssl.sh, ssllabs-scan'
+  s.description  += 'extract cipher suites from external tools: SSLyze, sslscan2, testssl.sh, ssllabs-scan, tlsx'
   s.authors       = ['Alexandre ZANNI']
   s.email         = 'alexandre.zanni@engineer.com'
   s.homepage      = 'https://noraj.github.io/tls-map/'

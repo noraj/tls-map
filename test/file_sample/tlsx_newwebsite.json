@@ -1,0 +1,48 @@
+{
+  "timestamp": "2023-01-30T23:15:27.442107109+01:00",
+  "host": "pwn.by",
+  "ip": "34.141.103.251",
+  "port": "443",
+  "probe_status": true,
+  "tls_version": "tls13",
+  "cipher": "TLS_AES_128_GCM_SHA256",
+  "not_before": "2022-12-05T21:01:24Z",
+  "not_after": "2023-03-05T21:01:23Z",
+  "subject_dn": "CN=*.pwn.by",
+  "subject_cn": "*.pwn.by",
+  "subject_an": [
+    "*.pwn.by",
+    "pwn.by"
+  ],
+  "issuer_dn": "CN=R3, O=Let's Encrypt, C=US",
+  "issuer_cn": "R3",
+  "issuer_org": [
+    "Let's Encrypt"
+  ],
+  "fingerprint_hash": {
+    "md5": "d756ef48de5795bba9264b5390c5ef6e",
+    "sha1": "b707b8136fc4797b06740a33cee045fe4ae4268d",
+    "sha256": "03e3925de022bb7c243bc42b0b2a7a6ad8e585e1f32ca8bbd824166646b4edfe"
+  },
+  "wildcard_certificate": true,
+  "tls_connection": "ctls",
+  "sni": "pwn.by",
+  "version_enum": [
+    "tls13",
+    "tls12"
+  ],
+  "cipher_enum": [
+    {
+      "version": "tls13"
+    },
+    {
+      "version": "tls12",
+      "ciphers": [
+        "TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA",
+        "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
+        "TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256",
+        "TLS_RSA_WITH_AES_128_GCM_SHA256"
+      ]
+    }
+  ]
+}

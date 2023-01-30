@@ -12,11 +12,13 @@ module TLSmap
     # External tools output data extractor
     #
     # Output files from [SSLyze][1] (JSON), [sslscan2][2] (XML), [testssl.sh][3] (JSON), [ssllabs-scan][4] (JSON)
+    # , [tlsx][5] (JSON)
     #
     # [1]:https://github.com/nabla-c0d3/sslyze
     # [2]:https://github.com/rbsec/sslscan
     # [3]:https://github.com/drwetter/testssl.sh
     # [4]:https://github.com/ssllabs/ssllabs-scan
+    # [5]:https://github.com/projectdiscovery/tlsx
     #
     # Example of commands:
     #
@@ -27,6 +29,7 @@ module TLSmap
     #   - json-pretty is the only supported format, default json or csv, html won't work
     # - `ssllabs-scan --quiet example.org > example.org.json`
     #   - The default output is the only supported format, using `-json-flat` won't work
+    # - `tlsx -u example.org -cipher-enum -o example.org.json -j -sm ctls`
     class Extractor
       # Get the list of ciphers extracted from the tool output file
       # @return [Array<String>] Cipher array (IANA names)
@@ -74,7 +77,7 @@ module TLSmap
       end
 
       # Extract the ciphers from the tool output file
-      # @param tool [String] Possible values: `sslyze`, `sslscan2`, `testssl`, `ssllabs-scan`
+      # @param tool [String] Possible values: `sslyze`, `sslscan2`, `testssl`, `ssllabs-scan`, `tlsx`
       # @param file [String] Path of the tool output file, beware of the format expected. See {TLSmap::App::Extractor}
       # @return [Array<String>] Cipher array (IANA names)
       def parse(tool, file)
@@ -89,11 +92,12 @@ module TLSmap
         'sslyze' => 'sslyze --json_out=example.org.json example.org',
         'sslscan2' => 'sslscan2 --show-cipher-ids --xml=example.org.xml example.org',
         'testssl' => 'testssl --jsonfile-pretty example.org.json --mapping no-openssl --cipher-per-proto example.org',
-        'ssllabs-scan' => 'ssllabs-scan --quiet example.org > example.org.json'
+        'ssllabs-scan' => 'ssllabs-scan --quiet example.org > example.org.json',
+        'tlsx' => 'tlsx -u example.org -cipher-enum -o example.org.json -j -sm ctls'
       }.freeze
 
       # Get the external tool command used to generate the expected result format
-      # @param tool [String] Possible values: `sslyze`, `sslscan2`, `testssl`, `ssllabs-scan`
+      # @param tool [String] Possible values: `sslyze`, `sslscan2`, `testssl`, `ssllabs-scan`, `tlsx`
       # @return [String] external tool command used to generate the expected result format used in input of the extract
       #   command (CLI) / {parse} method (library)
       def helper(tool)
@@ -264,6 +268,51 @@ module TLSmap
             prot = {
               512 => 'SSL2.0', 768 => 'SSL3.0', 769 => 'TLS1.0',
               770 => 'TLS1.1', 771 => 'TLS1.2', 772 => 'TLS1.3'
+            }
+            prot[id]
+          end
+
+          protected :extract_cipher, :id2prot
+        end
+      end
+
+      # Parsing tlsx
+      class Tlsx
+        class << self
+          # Extract the ciphers from the tlsx output file
+          # @param file [String] Path of the tlsx output file, beware of the format expected.
+          #   See {TLSmap::App::Extractor}
+          # @return [Array<String>] Cipher array (IANA names)
+          def parse(file)
+            data = Utils.json_load_file(file)
+            extract_cipher(data)
+          end
+
+          # Extract the ciphers from the tlsx output file
+          # @param json_data [Hash] Ruby hash of the parsed JSON
+          # @return [Array<String>] Cipher array (IANA names)
+          def extract_cipher(json_data) # rubocop:disable Metrics/MethodLength
+            raw = {
+              'SSL2.0' => [], 'SSL3.0' => [],
+              'TLS1.0' => [], 'TLS1.1' => [], 'TLS1.2' => [], 'TLS1.3' => []
+            }
+            json_data['cipher_enum'].each do |version|
+              next if version['ciphers'].nil?
+
+              version['ciphers'].each do |cipher|
+                raw[id2prot(version['version'])].push(cipher)
+              end
+            end
+            raw.transform_values(&:uniq)
+          end
+
+          # Convert tlsx protocol id to protocol name in TLSmap format
+          # @param id [String] tlsx protocol id
+          # @return [String] protocol name in TLSmap format
+          def id2prot(id)
+            prot = {
+              'ssl30' => 'SSL3.0', 'tls10' => 'TLS1.0',
+              'tls11' => 'TLS1.1', 'tls12' => 'TLS1.2', 'tls13' => 'TLS1.3'
             }
             prot[id]
           end

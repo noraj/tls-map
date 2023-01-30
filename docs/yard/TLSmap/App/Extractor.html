@@ -6,7 +6,7 @@
 <title>
   Class: TLSmap::App::Extractor
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.28
   
 </title>
 
@@ -102,7 +102,8 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     <p>External tools output data extractor</p>
-<p>Output files from <a href="https://github.com/nabla-c0d3/sslyze">SSLyze</a> (JSON), <a href="https://github.com/rbsec/sslscan">sslscan2</a> (XML), <a href="https://github.com/drwetter/testssl.sh">testssl.sh</a> (JSON), <a href="https://github.com/ssllabs/ssllabs-scan">ssllabs-scan</a> (JSON)</p>
+<p>Output files from <a href="https://github.com/nabla-c0d3/sslyze">SSLyze</a> (JSON), <a href="https://github.com/rbsec/sslscan">sslscan2</a> (XML), <a href="https://github.com/drwetter/testssl.sh">testssl.sh</a> (JSON), <a href="https://github.com/ssllabs/ssllabs-scan">ssllabs-scan</a> (JSON)
+, <a href="https://github.com/projectdiscovery/tlsx">tlsx</a> (JSON)</p>
 <p>Example of commands:</p>
 <ul>
 <li><code>sslyze --json_out=example.org.json example.org</code></li>
@@ -121,6 +122,7 @@
 <li>The default output is the only supported format, using <code>-json-flat</code> won't work</li>
 </ul>
 </li>
+<li><code>tlsx -u example.org -cipher-enum -o example.org.json -j -sm ctls</code></li>
 </ul>
 
 
@@ -135,7 +137,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Extractor/SsllabsScan.html" title="TLSmap::App::Extractor::SsllabsScan (class)">SsllabsScan</a></span>, <span class='object_link'><a href="Extractor/Sslscan2.html" title="TLSmap::App::Extractor::Sslscan2 (class)">Sslscan2</a></span>, <span class='object_link'><a href="Extractor/Sslyze.html" title="TLSmap::App::Extractor::Sslyze (class)">Sslyze</a></span>, <span class='object_link'><a href="Extractor/Testssl.html" title="TLSmap::App::Extractor::Testssl (class)">Testssl</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Extractor/SsllabsScan.html" title="TLSmap::App::Extractor::SsllabsScan (class)">SsllabsScan</a></span>, <span class='object_link'><a href="Extractor/Sslscan2.html" title="TLSmap::App::Extractor::Sslscan2 (class)">Sslscan2</a></span>, <span class='object_link'><a href="Extractor/Sslyze.html" title="TLSmap::App::Extractor::Sslyze (class)">Sslyze</a></span>, <span class='object_link'><a href="Extractor/Testssl.html" title="TLSmap::App::Extractor::Testssl (class)">Testssl</a></span>, <span class='object_link'><a href="Extractor/Tlsx.html" title="TLSmap::App::Extractor::Tlsx (class)">Tlsx</a></span>
     
   
 </p>
@@ -404,12 +406,12 @@
       <pre class="lines">
 
 
-36
-37
-38</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 39</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">initialize</span>
   <span style="color:#33B">@ciphers</span> = []
@@ -468,12 +470,12 @@
       <pre class="lines">
 
 
-33
-34
-35</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 36</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">ciphers</span>
   <span style="color:#33B">@ciphers</span>
@@ -520,7 +522,7 @@
       
       
         &mdash;
-        <div class='inline'><p>Possible values: <code>sslyze</code>, <code>sslscan2</code>, <code>testssl</code>, <code>ssllabs-scan</code></p>
+        <div class='inline'><p>Possible values: <code>sslyze</code>, <code>sslscan2</code>, <code>testssl</code>, <code>ssllabs-scan</code>, <code>tlsx</code></p>
 </div>
       
     </li>
@@ -566,15 +568,15 @@
       <pre class="lines">
 
 
-80
-81
-82
 83
 84
-85</pre>
+85
+86
+87
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 83</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">parse</span>(tool, file)
   <span style="color:#777"># Convert string to class</span>
@@ -629,12 +631,12 @@
       <pre class="lines">
 
 
-42
-43
-44</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 45</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">ssl20</span>
   <span style="color:#33B">@ciphers</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SSL2.0</span><span style="color:#710">'</span></span>]
@@ -686,12 +688,12 @@
       <pre class="lines">
 
 
-48
-49
-50</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 51</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">ssl30</span>
   <span style="color:#33B">@ciphers</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SSL3.0</span><span style="color:#710">'</span></span>]
@@ -743,12 +745,12 @@
       <pre class="lines">
 
 
-54
-55
-56</pre>
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 57</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">tls10</span>
   <span style="color:#33B">@ciphers</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.0</span><span style="color:#710">'</span></span>]
@@ -800,12 +802,12 @@
       <pre class="lines">
 
 
-60
-61
-62</pre>
+63
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 63</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">tls11</span>
   <span style="color:#33B">@ciphers</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.1</span><span style="color:#710">'</span></span>]
@@ -857,12 +859,12 @@
       <pre class="lines">
 
 
-66
-67
-68</pre>
+69
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 69</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">tls12</span>
   <span style="color:#33B">@ciphers</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.2</span><span style="color:#710">'</span></span>]
@@ -914,12 +916,12 @@
       <pre class="lines">
 
 
-72
-73
-74</pre>
+75
+76
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 75</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">tls13</span>
   <span style="color:#33B">@ciphers</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.3</span><span style="color:#710">'</span></span>]
@@ -934,9 +936,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jan 31 21:15:48 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-3.1.0).
+  Generated on Mon Jan 30 23:55:03 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.28 (ruby-3.2.0).
 </div>
 
     </div>

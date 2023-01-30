@@ -33,7 +33,7 @@ Export options: (offline) export the list of all ciphers (mapping) in various fo
 
 Extract options: (offline) extract ciphers from external tools output file
   <filename>              The external tool output file
-  <format>                Supported formats: sslyze, sslscan2, testssl, ssllabs-scan (check the documentation for the expected file format)
+  <format>                Supported formats: sslyze, sslscan2, testssl, ssllabs-scan, tlsx (check the documentation for the expected file format)
   --only-weak             Show only ciphers with a security level equal to weak or insecure (hide secure and recommended) (work only with TLS not SSL).
   --hide-weak             Hide ciphers with a security level equal to weak or insecure (show only secure and recommended) (work only with TLS not SSL).
 
