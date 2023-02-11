@@ -59,7 +59,7 @@ DOCOPT
 begin
   args = Docopt.docopt(doc, version: TLSmap::VERSION)
   Paint.mode = 0 if args['--no-color']
-  pp args if args['--debug']
+  puts args if args['--debug']
   if args['search']
     cli = TLSmap::CLI.new(args['--force'])
     res = cli.search(args['<criteria>'].to_sym, args['<term>'], args['--output'].to_sym)
