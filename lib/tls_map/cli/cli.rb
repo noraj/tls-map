@@ -13,7 +13,7 @@ module TLSmap
     # It must match the integrity check for security purpose.
     # @param force [Boolean] Force parsing even if integrity check failed (DANGEROUS,
     #   may result in command execution vulnerability)
-    def initialize(force = false) # rubocop:disable Lint/MissingSuper
+    def initialize(force = false)
       @storage_location = 'data/'
       @database_path = absolute_db_path('mapping.marshal')
       database_exists?
@@ -62,7 +62,7 @@ module TLSmap
       # It must match the integrity check for security purpose.
       # @param force [Boolean] Force parsing even if integrity check failed (DANGEROUS,
       #   may result in command execution vulnerability)
-      def initialize(force = false) # rubocop:disable Lint/MissingSuper
+      def initialize(force = false)
         @storage_location = 'data/'
         @extended_path = absolute_db_path('extended.marshal')
         @enhanced_data = {}
