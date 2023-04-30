@@ -1,6 +1,11 @@
 # Changelog
 
-## [Unreleased]
+## [3.0.0 - Unreleased]
+
+- **Breaking changes**:
+  - Drop support for Ruby 2.6 and 2.7 as they are EOL
+    - [Ruby - Ruby Maintenance Branches](https://www.ruby-lang.org/en/downloads/branches/)
+    - [endoflife.date - Ruby](https://endoflife.date/ruby)
 
 ## [2.2.0]
 
