@@ -21,7 +21,7 @@ module TLSmap
       # Root URL of Cipher Suite Info
       ROOT = 'https://ciphersuite.info/'
       # Root URL of Cipher Suite Info API
-      API_ROOT = "#{ROOT}api/"
+      API_ROOT = "#{ROOT}api/".freeze
       # URL of the data file containing vulnerabilities information
       VULN_DATA = 'https://raw.githubusercontent.com/hcrudolph/ciphersuite.info/master/directory/fixtures/00_vulnerabilities.yaml'
       # URL of the data file containing technologies information
