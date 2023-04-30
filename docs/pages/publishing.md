@@ -37,3 +37,25 @@ And to be sure all tests pass!
 ```plaintext
 $ rake test
 ```
+
+## Update data
+
+Update `data/mapping.marshal` and `data/extended.marshal`:
+
+```
+$ bundle exec ruby -Ilib -rtls_map bin/tls-map update --with-extended
+```
+
+Update `INTEGRITY` of `TLSmap::CLI` and `TLSmap::CLI::Extended` in `lib/tls_map/cli/cli.rb`.
+
+```
+$ sha256sum data/*.marshal
+```
+
+Update other files:
+
+```
+$ bundle exec ruby -Ilib -rtls_map bin/tls-map export data/mapping.json json_pretty
+$ bundle exec ruby -Ilib -rtls_map bin/tls-map export data/mapping.min.json json_compact
+$ bundle exec ruby -Ilib -rtls_map bin/tls-map export data/mapping.md markdown
+```

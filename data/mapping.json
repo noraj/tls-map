@@ -1050,6 +1050,20 @@
     "nss": null
   },
   {
+    "codepoint": "1306",
+    "iana": "TLS_AEGIS_256_SHA384",
+    "openssl": null,
+    "gnutls": null,
+    "nss": null
+  },
+  {
+    "codepoint": "1307",
+    "iana": "TLS_AEGIS_128L_SHA256",
+    "openssl": null,
+    "gnutls": null,
+    "nss": null
+  },
+  {
     "codepoint": "5600",
     "iana": "TLS_FALLBACK_SCSV",
     "openssl": null,

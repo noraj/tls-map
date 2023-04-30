@@ -9,7 +9,7 @@ module TLSmap
     GNUTLS_URL = 'https://gitlab.com/gnutls/gnutls/raw/master/lib/algorithms/ciphersuites.c'
 
     def parse_gnutls
-      reg = /(GNUTLS_[a-zA-Z0-9_]+)\s+{\s?(0x[[:xdigit:]]{2},\s?0x[[:xdigit:]]{2})\s?}/
+      reg = /(GNUTLS_[a-zA-Z0-9_]+)\s+\\\s+{\s+\\\s+(0x[[:xdigit:]]{2},\s?0x[[:xdigit:]]{2})\s+\\\s+}/
       File.read(@gnutls_file.path).scan(reg).each do |alg|
         codepoint = codepoint_iana(alg[1])
         name = alg[0][7..]

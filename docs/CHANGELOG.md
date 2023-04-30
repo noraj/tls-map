@@ -6,6 +6,8 @@
   - Drop support for Ruby 2.6 and 2.7 as they are EOL
     - [Ruby - Ruby Maintenance Branches](https://www.ruby-lang.org/en/downloads/branches/)
     - [endoflife.date - Ruby](https://endoflife.date/ruby)
+- Update data
+- Patch GnuTLS parsing regexp to reflect upstream source code format change
 
 ## [2.2.0]
 
