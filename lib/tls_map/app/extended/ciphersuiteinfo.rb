@@ -79,7 +79,7 @@ module TLSmap
       def enhance_all
         fetch_ciphersuite
         out = {}
-        @ciphersuite_all.each do |k, _v|
+        @ciphersuite_all.each_key do |k|
           out.store(k, extend(k, true))
         end
         @enhanced_data = out
