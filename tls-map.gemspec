@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     'documentation_uri'     => 'https://noraj.github.io/tls-map/yard/',
     'homepage_uri'          => 'https://noraj.github.io/tls-map/',
     'source_code_uri'       => 'https://github.com/noraj/tls-map/',
+    'funding_uri'           => 'https://github.com/sponsors/noraj',
     'rubygems_mfa_required' => 'true'
   }
 
