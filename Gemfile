@@ -13,7 +13,7 @@ end
 
 # Needed for the CLI & library
 group :runtime, :all do
-  gem 'rexml', '~> 3.2' # XML parser
+  gem 'rexml', '~> 3.3' # XML parser
 end
 
 # Needed to install dependencies
