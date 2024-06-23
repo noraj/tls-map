@@ -59,3 +59,5 @@ $ bundle exec ruby -Ilib -rtls_map bin/tls-map export data/mapping.json json_pre
 $ bundle exec ruby -Ilib -rtls_map bin/tls-map export data/mapping.min.json json_compact
 $ bundle exec ruby -Ilib -rtls_map bin/tls-map export data/mapping.md markdown
 ```
+
+Update the table in `docs/pages/mapping.md`.

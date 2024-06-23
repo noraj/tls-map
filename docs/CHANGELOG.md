@@ -8,6 +8,9 @@
     - [endoflife.date - Ruby](https://endoflife.date/ruby)
 - Update data
 - Patch GnuTLS parsing regexp to reflect upstream source code format change
+- Patch GnuTLS parsing regexp to reflect upstream source code format change (again)
+- Update dependencies
+- Add `csv` as a dependency as it will be removed from standard library
 
 ## [2.2.0]
 
