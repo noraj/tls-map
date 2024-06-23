@@ -19,7 +19,7 @@ $ bundle exec yard doc
 And to be sure all tests pass!
 
 ```plaintext
-$ rake test
+$ bundle exec rake test
 ```
 
 ## On BlackArch
@@ -35,7 +35,7 @@ $ bundle exec yard doc
 And to be sure all tests pass!
 
 ```plaintext
-$ rake test
+$ bundle exec rake test
 ```
 
 ## Update data

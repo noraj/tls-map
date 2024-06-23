@@ -6,7 +6,7 @@
 <title>
   Class: TLSmap::App::Extended
   
-    &mdash; Documentation by YARD 0.9.28
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -157,7 +157,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">ROOT</span><span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">api/</span><span style="color:#710">&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">ROOT</span><span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">api/</span><span style="color:#710">&quot;</span></span>.freeze</pre></dd>
       
         <dt id="VULN_DATA-constant" class="">VULN_DATA =
           <div class="docstring">
@@ -589,7 +589,7 @@ The data will be available through <span class='object_link'><a href="#enhanced_
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">enhance_all</span>
   fetch_ciphersuite
   out = {}
-  <span style="color:#33B">@ciphersuite_all</span>.each <span style="color:#080;font-weight:bold">do</span> |k, _v|
+  <span style="color:#33B">@ciphersuite_all</span>.each_key <span style="color:#080;font-weight:bold">do</span> |k|
     out.store(k, extend(k, <span style="color:#069">true</span>))
   <span style="color:#080;font-weight:bold">end</span>
   <span style="color:#33B">@enhanced_data</span> = out
@@ -899,9 +899,9 @@ except <code>vulns</code> which is an array of hashes containing two keys: <code
 </div>
 
       <div id="footer">
-  Generated on Mon Jan 30 23:55:03 2023 by
+  Generated on Sun Jun 23 20:28:54 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.2.0).
+  0.9.36 (ruby-3.3.0).
 </div>
 
     </div>

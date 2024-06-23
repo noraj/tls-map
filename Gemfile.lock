@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tls-map (2.2.0)
+    tls-map (3.0.0)
       csv (~> 3.3)
       docopt (~> 0.6)
       paint (~> 2.2)

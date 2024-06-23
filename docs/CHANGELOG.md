@@ -1,6 +1,8 @@
 # Changelog
 
-## [3.0.0 - Unreleased]
+## [Unreleased]
+
+## [3.0.0]
 
 - **Breaking changes**:
   - Drop support for Ruby 2.6 and 2.7 as they are EOL
