@@ -1051,7 +1051,7 @@
   },
   {
     "codepoint": "1306",
-    "iana": "TLS_AEGIS_256_SHA384",
+    "iana": "TLS_AEGIS_256_SHA512",
     "openssl": null,
     "gnutls": null,
     "nss": null
@@ -2326,14 +2326,14 @@
   {
     "codepoint": "C0B4",
     "iana": "TLS_SHA256_SHA256",
-    "openssl": null,
+    "openssl": "TLS_SHA256_SHA256",
     "gnutls": null,
     "nss": null
   },
   {
     "codepoint": "C0B5",
     "iana": "TLS_SHA384_SHA384",
-    "openssl": null,
+    "openssl": "TLS_SHA384_SHA384",
     "gnutls": null,
     "nss": null
   },

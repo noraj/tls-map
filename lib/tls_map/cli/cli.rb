@@ -7,7 +7,7 @@ require 'digest'
 module TLSmap
   # Offline version of {App}
   class CLI < App
-    INTEGRITY = 'e27186e66752a8bc83862783147fd2f793958d728d76367b82750394d41151a3' # sha2-256
+    INTEGRITY = 'a04956498a5838c5f55cc58f255bd143a646826c8e709048d17e7d09adae0b4e' # sha2-256
 
     # Load and parse data from marshalized hash (`data/mapping.marshal`).
     # It must match the integrity check for security purpose.
@@ -56,7 +56,7 @@ module TLSmap
 
     # Offline version of {App::Extended}
     class Extended < App::Extended
-      INTEGRITY = '58d8594215076c97d1feef1b8a0e9f5b4c4ddd18724810cf2e3d2b2f6f4fa033' # sha2-256
+      INTEGRITY = 'bed565db6cc8da400c51bcc17107b68bce86f2c7bdf2495d43633679a295d0aa' # sha2-256
 
       # Load and parse data from marshalized hash (`data/extended.marshal`).
       # It must match the integrity check for security purpose.
