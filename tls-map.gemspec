@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = ['>= 3.0.0', '< 4.0']
 
+  s.add_runtime_dependency('csv', '~> 3.3') # parse and generate CSV
   s.add_runtime_dependency('docopt', '~> 0.6') # for argument parsing
   s.add_runtime_dependency('paint', '~> 2.2') # for colorized output
   s.add_runtime_dependency('rexml', '~> 3.2') # XML parser
