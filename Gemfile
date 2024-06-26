@@ -14,7 +14,7 @@ end
 # Needed for the CLI & library
 group :runtime, :all do
   gem 'csv', '~> 3.3' # parse and generate CSV
-  gem 'rexml', '~> 3.2' # XML parser
+  gem 'rexml', '~> 3.3' # XML parser
 end
 
 # Needed to install dependencies
