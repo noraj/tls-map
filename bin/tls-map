@@ -88,7 +88,7 @@ begin
           puts "#{Paint[dic[k], :magenta]}: #{Paint[v, sec_lvl[v][:color]]}"
         else
           print "#{Paint[dic[k], :magenta]}: #{Paint[v, :white]}"
-          print " (#{tmext_i.translate_acronym(v)})" if args['--acronym'] && !tmext_i.translate_acronym(v).nil? # rubocop:disable Metrics/BlockNesting
+          print " (#{tmext_i.translate_acronym(v)})" if args['--acronym'] && !tmext_i.translate_acronym(v).nil?
           puts
         end
       end
