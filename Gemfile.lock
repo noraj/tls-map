@@ -25,13 +25,13 @@ GEM
     parser (3.3.4.0)
       ast (~> 2.4.1)
       racc
-    racc (1.8.0)
+    racc (1.8.1)
     rainbow (3.1.1)
     rake (13.2.1)
     regexp_parser (2.9.2)
     rexml (3.3.2)
       strscan
-    rubocop (1.65.0)
+    rubocop (1.65.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -66,7 +66,7 @@ DEPENDENCIES
   paint (~> 2.3)
   rake (~> 13.2)
   rexml (~> 3.3)
-  rubocop (~> 1.64)
+  rubocop (~> 1.65)
   tls-map!
   yard (>= 0.9.27, < 0.10)
   yard-coderay (~> 0.1)
