@@ -47,7 +47,7 @@ GEM
     ruby-progressbar (1.13.0)
     strscan (3.1.0)
     unicode-display_width (2.5.0)
-    yard (0.9.36)
+    yard (0.9.37)
     yard-coderay (0.1.0)
       coderay
       yard
