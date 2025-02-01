@@ -5,12 +5,17 @@
 Enhancements:
 
 - Display protocol version for extract command when options are used [#54](https://github.com/noraj/tls-map/issues/54)
+- Colored help message
 
 Chore:
 
 - **Breaking changes**:
   - Drop support for Ruby 3.0 as they are EOL
 - Add support for Ruby 3.4
+
+Documentation:
+
+- Use commonmarker 2.0 [ec7a452](https://github.com/noraj/tls-map/commit/ec7a452d953cf364a963037428c44c70165d3949)
 
 ## [3.0.0]
 

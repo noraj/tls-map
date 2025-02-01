@@ -12,9 +12,9 @@ require 'paint'
 # can't specify 2 options with the same name even if used in different commands
 # https://github.com/docopt/docopt/issues/296#issuecomment-857477191
 doc = <<~DOCOPT
-  TLS map #{TLSmap::VERSION}
+  #{Paint['TLS map', :bold, '#81c8b6']} #{Paint[TLSmap::VERSION, :bold]}
 
-  Usage:
+  #{Paint['Usage:', '#81c8b6']}
     tls-map search <criteria> <term> [-o <output> --force -e -a] [--no-color --debug]
     tls-map bulk <criteria> <file> [-q <output> --force] [--no-color --debug]
     tls-map export <filename> <format> [--force] [--debug]
@@ -23,32 +23,32 @@ doc = <<~DOCOPT
     tls-map -h | --help
     tls-map --version
 
-  Search options: (offline) search and translate cipher names between SSL/TLS libraries
+  #{Paint['Search options:', '#81c8b6']} #{Paint['(offline) search and translate cipher names between SSL/TLS libraries', :underline]}
     <criteria>              The type of term. Accepted values: codepoint, iana, openssl, gnutls, nss.
     <term>                  The cipher algorithm name.
     -o, --output <output>   Displayed fields. Accepted values: all, codepoint, iana, openssl, gnutls, nss. [default: all]
     -e, --extended          (Online) Display additional information about the cipher (requires output = all or iana)
     -a, --acronym           (Online) Display full acronym name (requires -e / --extended option)
 
-  Bulk options: (offline) search and translate cipher names between SSL/TLS libraries in bulk
+  #{Paint['Bulk options:', '#81c8b6']} #{Paint['(offline) search and translate cipher names between SSL/TLS libraries in bulk', :underline]}
     <criteria>              The type of term. Accepted values: codepoint, iana, openssl, gnutls, nss.
     <file>                  File containing the cipher algorithm names, one per line.
     -q, --output2 <output>  Displayed fields. Accepted values: codepoint, iana, openssl, gnutls, nss. [default: iana]
 
-  Export options: (offline) export the list of all ciphers (mapping) in various formats
+  #{Paint['Export options:', '#81c8b6']} #{Paint['(offline) export the list of all ciphers (mapping) in various formats', :underline]}
     <filename>              The output file name to write to.
     <format>                Supported formats: markdown (a markdown table), json_pretty (expanded JSON), json_compact (minified JSON), marshal (Ruby marshalized hash).
 
-  Extract options: (offline) extract ciphers from external tools output file
+  #{Paint['Extract options:', '#81c8b6']} #{Paint['(offline) extract ciphers from external tools output file', :underline]}
     <filename>              The external tool output file
     <format>                Supported formats: sslyze, sslscan2, testssl, ssllabs-scan, tlsx (check the documentation for the expected file format)
     --only-weak             Show only ciphers with a security level equal to weak or insecure (hide secure and recommended) (work only with TLS not SSL).
     --hide-weak             Hide ciphers with a security level equal to weak or insecure (show only secure and recommended) (work only with TLS not SSL).
 
-  Update options: (online) DANGEROUS, will break database integrity, force option will be required
+  #{Paint['Update options:', '#81c8b6']} #{Paint['(online) DANGEROUS, will break database integrity, force option will be required', :underline]}
     --with-extended         (Online) Also save extended information used by search --extended option.
 
-  Other options:
+  #{Paint['Other options:', '#81c8b6']}
     --force     Force parsing even if integrity check failed (DANGEROUS, may result in command execution vulnerability)
     --no-color  Disable colorized output
     --debug     Display arguments
