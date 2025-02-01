@@ -112,8 +112,11 @@ begin
         cliext = TLSmap::CLI::Extended.new
         v.each do |alg|
           ci = TLSmap::App::Cipher.new(:iana, alg, enhanced_data: cliext.enhanced_data)
-          puts Paint[alg, :white] if (args['--only-weak'] && !ci.should_i_use?) ||
-                                     (args['--hide-weak'] && ci.should_i_use?)
+          next unless (args['--only-weak'] && !ci.should_i_use?) ||
+                      (args['--hide-weak'] && ci.should_i_use?)
+
+          print Paint["#{k} ", :blue] unless v.empty?
+          puts Paint[alg, :white]
         end
       else
         puts Paint[k, :blue] unless v.empty?

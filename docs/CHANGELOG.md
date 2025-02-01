@@ -2,10 +2,15 @@
 
 ## [Unreleased]
 
+Enhancements:
+
+- Display protocol version for extract command when options are used [#54](https://github.com/noraj/tls-map/issues/54)
+
+Chore:
+
 - **Breaking changes**:
   - Drop support for Ruby 3.0 as they are EOL
-- Chore:
-  - Add support for Ruby 3.4
+- Add support for Ruby 3.4
 
 ## [3.0.0]
 
