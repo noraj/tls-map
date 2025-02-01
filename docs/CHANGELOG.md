@@ -16,6 +16,7 @@ Chore:
 - **Breaking changes**:
   - Drop support for Ruby 3.0 as they are EOL
 - Add support for Ruby 3.4
+- Update extended data for offline use
 
 Documentation:
 

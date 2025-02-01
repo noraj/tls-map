@@ -56,7 +56,7 @@ module TLSmap
 
     # Offline version of {App::Extended}
     class Extended < App::Extended
-      INTEGRITY = 'bed565db6cc8da400c51bcc17107b68bce86f2c7bdf2495d43633679a295d0aa' # sha2-256
+      INTEGRITY = '3236733f1d5b69f4230adaa726faeb2f4ba4e88aa59a72880cc822c43ed37b73' # sha2-256
 
       # Load and parse data from marshalized hash (`data/extended.marshal`).
       # It must match the integrity check for security purpose.
