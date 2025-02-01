@@ -2,10 +2,14 @@
 
 ## [Unreleased]
 
+Additions:
+
+- Add an `--audit` option to bulk mode to highlight weak cipher suites [#104](https://github.com/noraj/tls-map/issues/104)
+
 Enhancements:
 
 - Display protocol version for extract command when options are used [#54](https://github.com/noraj/tls-map/issues/54)
-- Colored help message
+- Colored help message [2627eb8](https://github.com/noraj/tls-map/commit/2627eb81914cb932e5eb6638d5de80dccaa8833b)
 
 Chore:
 

@@ -214,9 +214,7 @@ release.
 
 ### Bulk search
 
-Search and translate cipher names between SSL/TLS libraries **in bulk**
-
-`test/file_sample/bulk_IANA.txt`
+Example file `test/file_sample/bulk_IANA.txt` with IANA named cipher suites:
 
 ```
 TLS_DH_RSA_WITH_AES_256_CBC_SHA
@@ -227,12 +225,25 @@ TLS_CHACHA20_POLY1305_SHA256
 TLS_AES_256_GCM_SHA384
 ```
 
+Search and translate cipher names between SSL/TLS libraries **in bulk**:
+
 ```
 $ tls-map bulk iana test/file_sample/bulk_IANA.txt -q openssl
 DH-RSA-AES256-SHA
 RC4-SHA
 AES128-SHA
 
+TLS_CHACHA20_POLY1305_SHA256
+TLS_AES_256_GCM_SHA384
+```
+
+Search and audit if ciphers are weak **in bulk**:
+
+```
+$ tls-map bulk iana test/file_sample/bulk_IANA.txt --audit
+TLS_DH_RSA_WITH_AES_256_CBC_SHA -- weak
+TLS_RSA_WITH_RC4_128_SHA -- weak
+TLS_RSA_WITH_AES_128_CBC_SHA -- weak
 TLS_CHACHA20_POLY1305_SHA256
 TLS_AES_256_GCM_SHA384
 ```

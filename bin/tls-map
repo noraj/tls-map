@@ -16,7 +16,7 @@ doc = <<~DOCOPT
 
   #{Paint['Usage:', '#81c8b6']}
     tls-map search <criteria> <term> [-o <output> --force -e -a] [--no-color --debug]
-    tls-map bulk <criteria> <file> [-q <output> --force] [--no-color --debug]
+    tls-map bulk <criteria> <file> [(-q <output> | --audit) --force] [--no-color --debug]
     tls-map export <filename> <format> [--force] [--debug]
     tls-map extract <filename> <format> [--no-color --debug [--only-weak | --hide-weak]]
     tls-map update [--with-extended] [--debug]
@@ -34,6 +34,7 @@ doc = <<~DOCOPT
     <criteria>              The type of term. Accepted values: codepoint, iana, openssl, gnutls, nss.
     <file>                  File containing the cipher algorithm names, one per line.
     -q, --output2 <output>  Displayed fields. Accepted values: codepoint, iana, openssl, gnutls, nss. [default: iana]
+    --audit                 Highlight weak (security level equal to weak or insecure) cipher suites. (work only with TLS not SSL).
 
   #{Paint['Export options:', '#81c8b6']} #{Paint['(offline) export the list of all ciphers (mapping) in various formats', :underline]}
     <filename>              The output file name to write to.
@@ -98,7 +99,23 @@ begin
     res = cli.bulk_search(args['<criteria>'].to_sym, args['<file>'], args['--output2'].to_sym)
     puts Paint['No match found', :red] if res.empty?
     res.each do |h|
-      puts Paint[h[args['--output2'].to_sym], :green]
+      cs = h[args['--output2'].to_sym] # cipher suite
+      next if cs.nil?
+
+      if args['--audit']
+        cliext = TLSmap::CLI::Extended.new
+        ci = TLSmap::App::Cipher.new(:iana, cs, enhanced_data: cliext.enhanced_data)
+        if ci.should_i_use?
+          print Paint[cs, :green]
+        else
+          print Paint[cs, :red]
+          print ' -- '
+          print Paint['weak', :red, :bold]
+        end
+        puts
+      else
+        puts Paint[cs, :green]
+      end
     end
   elsif args['export']
     cli = TLSmap::CLI.new(args['--force'])
