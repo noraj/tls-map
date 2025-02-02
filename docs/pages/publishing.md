@@ -1,63 +1,56 @@
 # Publishing
 
-## On Rubygems.org
+Change version in `lib/tls_map/version.rb`.
 
-```plaintext
-$ git tag -a vx.x.x
-$ git push --follow-tags
-$ gem push tls-map-x.x.x.gem
+Be sure all tests pass!
+
+```bash
+bundle exec rake test
 ```
 
-See https://guides.rubygems.org/publishing/.
+Ensure there is no linting offence.
 
-On new release don't forget to rebuild the library documentation:
-
-```plaintext
-$ bundle exec yard doc
+```bash
+bundle exec rubocop
 ```
-
-And to be sure all tests pass!
-
-```plaintext
-$ bundle exec rake test
-```
-
-## On BlackArch
-
-BA process
-
-On new release don't forget to rebuild the library documentation:
-
-```plaintext
-$ bundle exec yard doc
-```
-
-And to be sure all tests pass!
-
-```plaintext
-$ bundle exec rake test
-```
-
-## Update data
 
 Update `data/mapping.marshal` and `data/extended.marshal`:
 
-```
-$ bundle exec ruby -Ilib -rtls_map bin/tls-map update --with-extended
+```bash
+bundle exec ruby -Ilib -rtls_map bin/tls-map update --with-extended
 ```
 
 Update `INTEGRITY` of `TLSmap::CLI` and `TLSmap::CLI::Extended` in `lib/tls_map/cli/cli.rb`.
 
-```
-$ sha256sum data/*.marshal
+```bash
+sha256sum data/*.marshal
 ```
 
 Update other files:
 
-```
-$ bundle exec ruby -Ilib -rtls_map bin/tls-map export data/mapping.json json_pretty
-$ bundle exec ruby -Ilib -rtls_map bin/tls-map export data/mapping.min.json json_compact
-$ bundle exec ruby -Ilib -rtls_map bin/tls-map export data/mapping.md markdown
+```bash
+bundle exec ruby -Ilib -rtls_map bin/tls-map export data/mapping.json json_pretty
+bundle exec ruby -Ilib -rtls_map bin/tls-map export data/mapping.min.json json_compact
+bundle exec ruby -Ilib -rtls_map bin/tls-map export data/mapping.md markdown
 ```
 
 Update the table in `docs/pages/mapping.md`.
+
+Don't forget to rebuild the library documentation:
+
+```bash
+bundle exec yard doc
+```
+
+Push git tag and the gem on Rubygems.
+
+```bash
+git tag -a vx.x.x
+git push --follow-tags
+
+bundle exec rake build
+gem push tls-map-x.x.x.gem
+```
+
+See https://guides.rubygems.org/publishing/.
+

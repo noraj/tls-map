@@ -1,5 +1,10 @@
 # Changelog
 
+## [Unreleased]
+
+- Documentation:
+  - Rework the publishing process
+
 ## [3.1.0]
 
 Additions:
