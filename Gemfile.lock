@@ -23,7 +23,7 @@ GEM
     commonmarker (2.0.4)
       rb_sys (~> 0.9)
     commonmarker (2.0.4-x86_64-linux)
-    csv (3.3.3)
+    csv (3.3.4)
     docopt (0.6.1)
     json (2.10.2)
     language_server-protocol (3.17.0.4)
