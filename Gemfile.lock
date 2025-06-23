@@ -45,7 +45,7 @@ GEM
       rake-compiler-dock (= 1.9.1)
     regexp_parser (2.10.0)
     rexml (3.4.1)
-    rubocop (1.76.2)
+    rubocop (1.77.0)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -81,7 +81,7 @@ DEPENDENCIES
   paint (~> 2.3)
   rake (~> 13.3)
   rexml (~> 3.4)
-  rubocop (~> 1.76)
+  rubocop (~> 1.77)
   tls-map!
   yard!
   yard-coderay (~> 0.1)
