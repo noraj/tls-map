@@ -19,13 +19,13 @@ end
 
 # Needed to install dependencies
 group :development, :install do
-  gem 'bundler', '~> 2.1'
+  gem 'bundler', '~> 4.0'
 end
 
 # Needed to run tests
 group :development, :test do
-  gem 'minitest', '~> 5.26'
-  gem 'minitest-skip', '~> 0.0' # skip dummy tests
+  gem 'minitest', '~> 6.0'
+  gem 'minitest-skip', '~> 1.0' # skip dummy tests
   gem 'rake', '~> 13.3'
 end
 
@@ -35,7 +35,10 @@ group :development, :lint do
 end
 
 group :development, :docs do
-  gem 'commonmarker', '~> 2.0' # for markdown support in YARD
+  gem 'commonmarker', '~> 2.6', '>= 2.6.1' # for markdown support in YARD
+  gem 'irb' # https://github.com/lsegal/yard/issues/1636
+  gem 'logger' # https://github.com/lsegal/yard/issues/1636
+  gem 'ostruct' # https://github.com/lsegal/yard/issues/1636
   # gem 'yard', ['>= 0.9.27', '< 0.10']
   # https://github.com/lsegal/yard/issues/1528
   gem 'yard', github: 'ParadoxV5/yard', ref: '9e869c940859570b07b81c5eadd6070e76f6291e', branch: 'commonmarker-1.0'

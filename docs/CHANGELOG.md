@@ -1,9 +1,17 @@
 # Changelog
 
-## [Unreleased]
+## [3.2.0]
 
+- **Breaking changes**:
+  - Drop support for Ruby 3.1
+- Chore:
+  - Add support for Ruby 4.0
+  - Update dependencies
+  - Update data
 - Documentation:
   - Rework the publishing process
+- Fix:
+  - Fix error `private constant Pathname::SEPARATOR_LIST referenced (NameError)` by replacing `Pathname::SEPARATOR_LIST` with `File::SEPARATOR` as [the constant was made private](https://github.com/ruby/pathname/commit/60f5d58d73e3deea750f1579d2a94872b199c77f)
 
 ## [3.1.0]
 

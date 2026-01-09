@@ -7,7 +7,7 @@ require 'digest'
 module TLSmap
   # Offline version of {App}
   class CLI < App
-    INTEGRITY = 'a04956498a5838c5f55cc58f255bd143a646826c8e709048d17e7d09adae0b4e' # sha2-256
+    INTEGRITY = '5c8f1ae39611cfb157778152a86cb1b8af669fe086d9d9f37d13a795d402cf97' # sha2-256
 
     # Load and parse data from marshalized hash (`data/mapping.marshal`).
     # It must match the integrity check for security purpose.
@@ -26,7 +26,7 @@ module TLSmap
     # @return [String] absolute filename of the data file
     def absolute_db_path(filename)
       pn = Pathname.new(__FILE__)
-      install_dir = pn.dirname.parent.parent.parent.to_s + Pathname::SEPARATOR_LIST
+      install_dir = pn.dirname.parent.parent.parent.to_s + File::SEPARATOR
       install_dir + @storage_location + filename
     end
 
@@ -75,7 +75,7 @@ module TLSmap
       # @return [String] absolute filename of the data file
       def absolute_db_path(filename)
         pn = Pathname.new(__FILE__)
-        install_dir = pn.dirname.parent.parent.parent.to_s + Pathname::SEPARATOR_LIST
+        install_dir = pn.dirname.parent.parent.parent.to_s + File::SEPARATOR
         install_dir + @storage_location + filename
       end
 

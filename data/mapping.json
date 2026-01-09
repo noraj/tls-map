@@ -532,6 +532,34 @@
     "nss": null
   },
   {
+    "codepoint": "006E",
+    "iana": "TLS_ASCONAEAD128_ASCONHASH256",
+    "openssl": null,
+    "gnutls": null,
+    "nss": null
+  },
+  {
+    "codepoint": "006F",
+    "iana": "TLS_ASCONAEAD128_SHA256",
+    "openssl": null,
+    "gnutls": null,
+    "nss": null
+  },
+  {
+    "codepoint": "0070",
+    "iana": "TLS_AES_128_GCM_ASCONHASH256",
+    "openssl": null,
+    "gnutls": null,
+    "nss": null
+  },
+  {
+    "codepoint": "0071",
+    "iana": "TLS_AES_128_CCM_ASCONHASH256",
+    "openssl": null,
+    "gnutls": null,
+    "nss": null
+  },
+  {
     "codepoint": "0084",
     "iana": "TLS_RSA_WITH_CAMELLIA_256_CBC_SHA",
     "openssl": "CAMELLIA256-SHA",
