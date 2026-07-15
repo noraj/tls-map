@@ -77,7 +77,7 @@ GEM
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.2.0)
-    yard (0.9.44)
+    yard (0.9.45)
     yard-coderay (0.1.0)
       coderay
       yard
