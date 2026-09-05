@@ -40,9 +40,17 @@ class TLSmapExtractorTest < Minitest::Test
     assert_includes(ex.ciphers['TLS1.3'], 'TLS_CHACHA20_POLY1305_SHA256')
   end
 
-  def test_App_Extractor_testssl
+  # version 3.0.x
+  def test_App_Extractor_testssl_30
     ex = TLSmap::App::Extractor.new
-    assert(ex.parse('testssl', 'test/file_sample/testssl.json'))
+    assert(ex.parse('testssl', 'test/file_sample/testssl_30.json'))
+    assert_includes(ex.ciphers['TLS1.2'], 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384')
+  end
+
+  # version 3.2.x
+  def test_App_Extractor_testssl_32
+    ex = TLSmap::App::Extractor.new
+    assert(ex.parse('testssl', 'test/file_sample/testssl_32.json'))
     assert_includes(ex.ciphers['TLS1.2'], 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384')
   end
 

@@ -229,14 +229,18 @@ module TLSmap
           # Extract the ciphers from the testssl output file
           # @param json_data [Hash] Ruby hash of the parsed JSON
           # @return [Array<String>] Cipher array (IANA names)
-          def extract_cipher(json_data)
+          def extract_cipher(json_data) # rubocop:disable Metrics/MethodLength
             cipher = json_data['scanResult'][0]['cipherTests']
             raw = {
               'SSL2.0' => [], 'SSL3.0' => [],
               'TLS1.0' => [], 'TLS1.1' => [], 'TLS1.2' => [], 'TLS1.3' => []
             }
             cipher.each do |node|
-              raw[id2prot(node['id'])].push(finding2cipher(node['finding']))
+              node_id = node['id']
+              # patch for 3.2+ format, see https://github.com/testssl/testssl.sh/issues/1994
+              next if node_id.match?(/supportedciphers_.+/)
+
+              raw[id2prot(node_id)].push(finding2cipher(node['finding']))
             end
             raw
           end

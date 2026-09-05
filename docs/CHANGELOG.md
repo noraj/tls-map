@@ -11,6 +11,8 @@ Starting from version 3.3.0, this project will adheres to [Break Versioning](htt
 ### Updates
 
 - **Fixed** sslyze extraction for version 6.1+ [#200](https://github.com/noraj/tls-map/issues/200)
+  - Now `sslyze4` (4.x - 5.x) and `sslyze6` (6.x+) are separated
+- **Fixed** testssl.sh extraction for version 3.2+ (including 3.1dev) [#199](https://github.com/noraj/tls-map/issues/199)
 
 ### Chores
 

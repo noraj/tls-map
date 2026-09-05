@@ -1,0 +1,394 @@
+{
+          "clientProblem1" : [
+                            {
+                                "id"           : "engine_problem",
+                                "severity"     : "WARN",
+                                "finding"      : "No engine or GOST support via engine with your /usr/bin/openssl"
+                           }
+          ],
+          "Invocation"  : "testssl --jsonfile-pretty example.org.json --mapping no-openssl --cipher-per-proto example.org",
+          "at"          : "devarch:/usr/bin/openssl",
+          "version"     : "3.2.4 433f9b7",
+          "openssl"     : "OpenSSL 3.6.4 from Tue Aug 25 18:15:54 2026",
+          "startTime"   : "1788620446",
+          "scanResult"  : [
+          {
+                    "targetHost"      : "example.org",
+                    "ip"              : "172.66.157.237",
+                    "port"            : "443",
+                    "rDNS"            : "--",
+                    "service"         : "HTTP",
+                    "pretest"           : [
+                            {
+                                "id"           : "pre_128cipher",
+                                "severity"     : "INFO",
+                                "finding"      : "No 128 cipher limit bug"
+                           }
+                    ],
+                    "protocols"         : [
+
+                    ],
+                    "grease"            : [
+
+                    ],
+                    "ciphers"           : [
+
+                    ],
+                    "serverPreferences" : [
+
+                    ],
+                    "fs"                : [
+
+                    ],
+                    "serverDefaults"    : [
+
+                    ],
+                    "vulnerabilities"   : [
+
+                    ],
+                    "cipherTests"       : [
+                            {
+                                "id"           : "cipher-tls1_xc014",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1   xc014   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA                ECDH 253   AES         256"
+                           },{
+                                "id"           : "cipher-tls1_x35",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1   x35     TLS_RSA_WITH_AES_256_CBC_SHA                      RSA        AES         256"
+                           },{
+                                "id"           : "cipher-tls1_xc013",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1   xc013   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA                ECDH 253   AES         128"
+                           },{
+                                "id"           : "cipher-tls1_x2f",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1   x2f     TLS_RSA_WITH_AES_128_CBC_SHA                      RSA        AES         128"
+                           },{
+                                "id"           : "cipher-tls1_x0a",
+                                "severity"     : "MEDIUM",
+                                "finding"      : "TLSv1   x0a     TLS_RSA_WITH_3DES_EDE_CBC_SHA                     RSA        3DES        168"
+                           },{
+                                "id"           : "supportedciphers_TLSv1",
+                                "severity"     : "INFO",
+                                "finding"      : "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA TLS_RSA_WITH_AES_256_CBC_SHA TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA TLS_RSA_WITH_AES_128_CBC_SHA TLS_RSA_WITH_3DES_EDE_CBC_SHA"
+                           },{
+                                "id"           : "cipher-tls1_1_xc014",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.1   xc014   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA                ECDH 253   AES         256"
+                           },{
+                                "id"           : "cipher-tls1_1_x35",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.1   x35     TLS_RSA_WITH_AES_256_CBC_SHA                      RSA        AES         256"
+                           },{
+                                "id"           : "cipher-tls1_1_xc013",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.1   xc013   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA                ECDH 253   AES         128"
+                           },{
+                                "id"           : "cipher-tls1_1_x2f",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.1   x2f     TLS_RSA_WITH_AES_128_CBC_SHA                      RSA        AES         128"
+                           },{
+                                "id"           : "supportedciphers_TLSv1_1",
+                                "severity"     : "INFO",
+                                "finding"      : "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA TLS_RSA_WITH_AES_256_CBC_SHA TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA TLS_RSA_WITH_AES_128_CBC_SHA"
+                           },{
+                                "id"           : "cipher-tls1_2_xc030",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.2   xc030   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384             ECDH 253   AESGCM      256"
+                           },{
+                                "id"           : "cipher-tls1_2_xc02c",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.2   xc02c   TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384           ECDH 253   AESGCM      256"
+                           },{
+                                "id"           : "cipher-tls1_2_xc028",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   xc028   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384             ECDH 253   AES         256"
+                           },{
+                                "id"           : "cipher-tls1_2_xc024",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   xc024   TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384           ECDH 253   AES         256"
+                           },{
+                                "id"           : "cipher-tls1_2_xc014",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   xc014   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA                ECDH 253   AES         256"
+                           },{
+                                "id"           : "cipher-tls1_2_xc00a",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   xc00a   TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA              ECDH 253   AES         256"
+                           },{
+                                "id"           : "cipher-tls1_2_xcca9",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.2   xcca9   TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256     ECDH 253   ChaCha20    256"
+                           },{
+                                "id"           : "cipher-tls1_2_xcca8",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.2   xcca8   TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256       ECDH 253   ChaCha20    256"
+                           },{
+                                "id"           : "cipher-tls1_2_x9d",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.2   x9d     TLS_RSA_WITH_AES_256_GCM_SHA384                   RSA        AESGCM      256"
+                           },{
+                                "id"           : "cipher-tls1_2_x3d",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   x3d     TLS_RSA_WITH_AES_256_CBC_SHA256                   RSA        AES         256"
+                           },{
+                                "id"           : "cipher-tls1_2_x35",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   x35     TLS_RSA_WITH_AES_256_CBC_SHA                      RSA        AES         256"
+                           },{
+                                "id"           : "cipher-tls1_2_xc02f",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.2   xc02f   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256             ECDH 253   AESGCM      128"
+                           },{
+                                "id"           : "cipher-tls1_2_xc02b",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.2   xc02b   TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256           ECDH 253   AESGCM      128"
+                           },{
+                                "id"           : "cipher-tls1_2_xc027",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   xc027   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256             ECDH 253   AES         128"
+                           },{
+                                "id"           : "cipher-tls1_2_xc023",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   xc023   TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256           ECDH 253   AES         128"
+                           },{
+                                "id"           : "cipher-tls1_2_xc013",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   xc013   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA                ECDH 253   AES         128"
+                           },{
+                                "id"           : "cipher-tls1_2_xc009",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   xc009   TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA              ECDH 253   AES         128"
+                           },{
+                                "id"           : "cipher-tls1_2_x9c",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.2   x9c     TLS_RSA_WITH_AES_128_GCM_SHA256                   RSA        AESGCM      128"
+                           },{
+                                "id"           : "cipher-tls1_2_x3c",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   x3c     TLS_RSA_WITH_AES_128_CBC_SHA256                   RSA        AES         128"
+                           },{
+                                "id"           : "cipher-tls1_2_x2f",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   x2f     TLS_RSA_WITH_AES_128_CBC_SHA                      RSA        AES         128"
+                           },{
+                                "id"           : "supportedciphers_TLSv1_2",
+                                "severity"     : "INFO",
+                                "finding"      : "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 TLS_RSA_WITH_AES_256_GCM_SHA384 TLS_RSA_WITH_AES_256_CBC_SHA256 TLS_RSA_WITH_AES_256_CBC_SHA TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA TLS_RSA_WITH_AES_128_GCM_SHA256 TLS_RSA_WITH_AES_128_CBC_SHA256 TLS_RSA_WITH_AES_128_CBC_SHA"
+                           },{
+                                "id"           : "cipher-tls1_3_x1302",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.3   x1302   TLS_AES_256_GCM_SHA384                            ECDH/MLKEM AESGCM      256"
+                           },{
+                                "id"           : "cipher-tls1_3_x1303",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.3   x1303   TLS_CHACHA20_POLY1305_SHA256                      ECDH/MLKEM ChaCha20    256"
+                           },{
+                                "id"           : "cipher-tls1_3_x1301",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.3   x1301   TLS_AES_128_GCM_SHA256                            ECDH/MLKEM AESGCM      128"
+                           },{
+                                "id"           : "supportedciphers_TLSv1_3",
+                                "severity"     : "INFO",
+                                "finding"      : "TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_AES_128_GCM_SHA256"
+                           }
+                    ],
+                    "browserSimulations": [
+
+                    ],
+                    "rating"            : [
+
+                    ]
+          }
+          ,
+          {
+                    "targetHost"      : "example.org",
+                    "ip"              : "104.20.26.136",
+                    "port"            : "443",
+                    "rDNS"            : "--",
+                    "service"         : "HTTP",
+                    "pretest"           : [
+                            {
+                                "id"           : "pre_128cipher",
+                                "severity"     : "INFO",
+                                "finding"      : "No 128 cipher limit bug"
+                           }
+                    ],
+                    "protocols"         : [
+
+                    ],
+                    "grease"            : [
+
+                    ],
+                    "ciphers"           : [
+
+                    ],
+                    "serverPreferences" : [
+
+                    ],
+                    "fs"                : [
+
+                    ],
+                    "serverDefaults"    : [
+
+                    ],
+                    "vulnerabilities"   : [
+
+                    ],
+                    "cipherTests"       : [
+                            {
+                                "id"           : "cipher-tls1_xc014",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1   xc014   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA                ECDH 253   AES         256"
+                           },{
+                                "id"           : "cipher-tls1_x35",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1   x35     TLS_RSA_WITH_AES_256_CBC_SHA                      RSA        AES         256"
+                           },{
+                                "id"           : "cipher-tls1_xc013",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1   xc013   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA                ECDH 253   AES         128"
+                           },{
+                                "id"           : "cipher-tls1_x2f",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1   x2f     TLS_RSA_WITH_AES_128_CBC_SHA                      RSA        AES         128"
+                           },{
+                                "id"           : "cipher-tls1_x0a",
+                                "severity"     : "MEDIUM",
+                                "finding"      : "TLSv1   x0a     TLS_RSA_WITH_3DES_EDE_CBC_SHA                     RSA        3DES        168"
+                           },{
+                                "id"           : "supportedciphers_TLSv1",
+                                "severity"     : "INFO",
+                                "finding"      : "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA TLS_RSA_WITH_AES_256_CBC_SHA TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA TLS_RSA_WITH_AES_128_CBC_SHA TLS_RSA_WITH_3DES_EDE_CBC_SHA"
+                           },{
+                                "id"           : "cipher-tls1_1_xc014",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.1   xc014   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA                ECDH 253   AES         256"
+                           },{
+                                "id"           : "cipher-tls1_1_x35",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.1   x35     TLS_RSA_WITH_AES_256_CBC_SHA                      RSA        AES         256"
+                           },{
+                                "id"           : "cipher-tls1_1_xc013",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.1   xc013   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA                ECDH 253   AES         128"
+                           },{
+                                "id"           : "cipher-tls1_1_x2f",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.1   x2f     TLS_RSA_WITH_AES_128_CBC_SHA                      RSA        AES         128"
+                           },{
+                                "id"           : "supportedciphers_TLSv1_1",
+                                "severity"     : "INFO",
+                                "finding"      : "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA TLS_RSA_WITH_AES_256_CBC_SHA TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA TLS_RSA_WITH_AES_128_CBC_SHA"
+                           },{
+                                "id"           : "cipher-tls1_2_xc030",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.2   xc030   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384             ECDH 253   AESGCM      256"
+                           },{
+                                "id"           : "cipher-tls1_2_xc02c",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.2   xc02c   TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384           ECDH 253   AESGCM      256"
+                           },{
+                                "id"           : "cipher-tls1_2_xc028",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   xc028   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384             ECDH 253   AES         256"
+                           },{
+                                "id"           : "cipher-tls1_2_xc024",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   xc024   TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384           ECDH 253   AES         256"
+                           },{
+                                "id"           : "cipher-tls1_2_xc014",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   xc014   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA                ECDH 253   AES         256"
+                           },{
+                                "id"           : "cipher-tls1_2_xc00a",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   xc00a   TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA              ECDH 253   AES         256"
+                           },{
+                                "id"           : "cipher-tls1_2_xcca9",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.2   xcca9   TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256     ECDH 253   ChaCha20    256"
+                           },{
+                                "id"           : "cipher-tls1_2_xcca8",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.2   xcca8   TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256       ECDH 253   ChaCha20    256"
+                           },{
+                                "id"           : "cipher-tls1_2_x9d",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.2   x9d     TLS_RSA_WITH_AES_256_GCM_SHA384                   RSA        AESGCM      256"
+                           },{
+                                "id"           : "cipher-tls1_2_x3d",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   x3d     TLS_RSA_WITH_AES_256_CBC_SHA256                   RSA        AES         256"
+                           },{
+                                "id"           : "cipher-tls1_2_x35",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   x35     TLS_RSA_WITH_AES_256_CBC_SHA                      RSA        AES         256"
+                           },{
+                                "id"           : "cipher-tls1_2_xc02f",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.2   xc02f   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256             ECDH 253   AESGCM      128"
+                           },{
+                                "id"           : "cipher-tls1_2_xc02b",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.2   xc02b   TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256           ECDH 253   AESGCM      128"
+                           },{
+                                "id"           : "cipher-tls1_2_xc027",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   xc027   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256             ECDH 253   AES         128"
+                           },{
+                                "id"           : "cipher-tls1_2_xc023",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   xc023   TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256           ECDH 253   AES         128"
+                           },{
+                                "id"           : "cipher-tls1_2_xc013",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   xc013   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA                ECDH 253   AES         128"
+                           },{
+                                "id"           : "cipher-tls1_2_xc009",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   xc009   TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA              ECDH 253   AES         128"
+                           },{
+                                "id"           : "cipher-tls1_2_x9c",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.2   x9c     TLS_RSA_WITH_AES_128_GCM_SHA256                   RSA        AESGCM      128"
+                           },{
+                                "id"           : "cipher-tls1_2_x3c",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   x3c     TLS_RSA_WITH_AES_128_CBC_SHA256                   RSA        AES         128"
+                           },{
+                                "id"           : "cipher-tls1_2_x2f",
+                                "severity"     : "LOW",
+                                "finding"      : "TLSv1.2   x2f     TLS_RSA_WITH_AES_128_CBC_SHA                      RSA        AES         128"
+                           },{
+                                "id"           : "supportedciphers_TLSv1_2",
+                                "severity"     : "INFO",
+                                "finding"      : "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 TLS_RSA_WITH_AES_256_GCM_SHA384 TLS_RSA_WITH_AES_256_CBC_SHA256 TLS_RSA_WITH_AES_256_CBC_SHA TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA TLS_RSA_WITH_AES_128_GCM_SHA256 TLS_RSA_WITH_AES_128_CBC_SHA256 TLS_RSA_WITH_AES_128_CBC_SHA"
+                           },{
+                                "id"           : "cipher-tls1_3_x1302",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.3   x1302   TLS_AES_256_GCM_SHA384                            ECDH/MLKEM AESGCM      256"
+                           },{
+                                "id"           : "cipher-tls1_3_x1303",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.3   x1303   TLS_CHACHA20_POLY1305_SHA256                      ECDH/MLKEM ChaCha20    256"
+                           },{
+                                "id"           : "cipher-tls1_3_x1301",
+                                "severity"     : "OK",
+                                "finding"      : "TLSv1.3   x1301   TLS_AES_128_GCM_SHA256                            ECDH/MLKEM AESGCM      128"
+                           },{
+                                "id"           : "supportedciphers_TLSv1_3",
+                                "severity"     : "INFO",
+                                "finding"      : "TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_AES_128_GCM_SHA256"
+                           }
+                    ],
+                    "browserSimulations": [
+
+                    ],
+                    "rating"            : [
+
+                    ]
+          }
+          ],
+                    "scanTime"  : 22
+}

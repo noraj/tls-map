@@ -115,7 +115,7 @@ Tool         | Version   | tls-map extractor | expected file format
 SSLyze       | 4.x - 5.x | sslyze4           | see [library documentation][extraction-expected-file-format]
 SSLyze       | 6.x       | sslyze6           | see [library documentation][extraction-expected-file-format]
 sslscan2     | all       | sslscan2          | see [library documentation][extraction-expected-file-format]
-testssl.sh   | ???       | testssl           | see [library documentation][extraction-expected-file-format]
+testssl.sh   | all       | testssl           | see [library documentation][extraction-expected-file-format]
 ssllabs-scan | all       | ssllabs-scan      | see [library documentation][extraction-expected-file-format]
 tlsx         | all       | tlsx              | see [library documentation][extraction-expected-file-format]
 
@@ -153,7 +153,7 @@ TLS_RSA_WITH_RC4_128_MD5
 Hide weak cipher suites while extracting (show only strong ones):
 
 ```
-$ tls-map extract test/file_sample/testssl.json testssl --hide-weak
+$ tls-map extract test/file_sample/testssl_32.json testssl --hide-weak
 TLS1.2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 TLS1.2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 TLS1.3 TLS_AES_256_GCM_SHA384
