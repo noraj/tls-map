@@ -1024,14 +1024,14 @@
   {
     "codepoint": "00C6",
     "iana": "TLS_SM4_GCM_SM3",
-    "openssl": null,
+    "openssl": "TLS_SM4_GCM_SM3",
     "gnutls": null,
     "nss": null
   },
   {
     "codepoint": "00C7",
     "iana": "TLS_SM4_CCM_SM3",
-    "openssl": null,
+    "openssl": "TLS_SM4_CCM_SM3",
     "gnutls": null,
     "nss": null
   },

@@ -6,7 +6,7 @@ The format is partially following [Keep a Changelog](https://keepachangelog.com/
 
 Starting from version 3.3.0, this project will adheres to [Break Versioning](https://www.taoensso.com/break-versioning). Until then, no standard was enforced.
 
-## Unreleased
+## [3.3.0](https://github.com/noraj/tls-map/releases/tag/v3.3.0) - 2026-09-05
 
 ### Updates
 

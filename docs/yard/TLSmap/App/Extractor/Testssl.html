@@ -6,13 +6,13 @@
 <title>
   Class: TLSmap::App::Extractor::Testssl
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.45
   
 </title>
 
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../../../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "TLSmap::App::Extractor::Testssl";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../../../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -94,7 +96,8 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/tls_map/app/extractor/extractor.rb</dd>
+    <dd>lib/tls_map/app/extractor/extractor.rb
+</dd>
   </dl>
   
 </div>
@@ -217,6 +220,7 @@
 
       
     </ul>
+    
   
 
 
@@ -286,29 +290,37 @@
       <pre class="lines">
 
 
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209</pre>
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 199</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 232</span>
 
-<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">extract_cipher</span>(json_data)
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">extract_cipher</span>(json_data) <span style="color:#777"># rubocop:disable Metrics/MethodLength</span>
   cipher = json_data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">scanResult</span><span style="color:#710">'</span></span>][<span style="color:#00D">0</span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">cipherTests</span><span style="color:#710">'</span></span>]
   raw = {
     <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SSL2.0</span><span style="color:#710">'</span></span> =&gt; [], <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SSL3.0</span><span style="color:#710">'</span></span> =&gt; [],
     <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.0</span><span style="color:#710">'</span></span> =&gt; [], <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.1</span><span style="color:#710">'</span></span> =&gt; [], <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.2</span><span style="color:#710">'</span></span> =&gt; [], <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS1.3</span><span style="color:#710">'</span></span> =&gt; []
   }
   cipher.each <span style="color:#080;font-weight:bold">do</span> |node|
-    raw[id2prot(node[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">id</span><span style="color:#710">'</span></span>])].push(finding2cipher(node[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">finding</span><span style="color:#710">'</span></span>]))
+    node_id = node[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">id</span><span style="color:#710">'</span></span>]
+    <span style="color:#777"># patch for 3.2+ format, see https://github.com/testssl/testssl.sh/issues/1994</span>
+    <span style="color:#080;font-weight:bold">next</span> <span style="color:#080;font-weight:bold">if</span> node_id.match?(<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">supportedciphers_.+</span><span style="color:#404">/</span></span>)
+
+    raw[id2prot(node_id)].push(finding2cipher(node[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">finding</span><span style="color:#710">'</span></span>]))
   <span style="color:#080;font-weight:bold">end</span>
   raw
 <span style="color:#080;font-weight:bold">end</span></pre>
@@ -378,12 +390,12 @@
       <pre class="lines">
 
 
-226
-227
-228</pre>
+263
+264
+265</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 226</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 263</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">finding2cipher</span>(finding)
   <span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#D20">\s</span><span style="color:#808">(</span><span style="color:#D20">\w</span><span style="color:#808">+_</span><span style="color:#D20">\w</span><span style="color:#808">+)</span><span style="color:#D20">\s</span><span style="color:#404">/</span></span>.match(finding).captures[<span style="color:#00D">0</span>]
@@ -454,17 +466,17 @@
       <pre class="lines">
 
 
-214
-215
-216
-217
-218
-219
-220
-221</pre>
+251
+252
+253
+254
+255
+256
+257
+258</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 214</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 251</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">id2prot</span>(id)
   prot = {
@@ -541,13 +553,13 @@ See <span class='object_link'><a href="../Extractor.html" title="TLSmap::App::Ex
       <pre class="lines">
 
 
-191
-192
-193
-194</pre>
+224
+225
+226
+227</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 191</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 224</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">parse</span>(file)
   data = <span style="color:#036;font-weight:bold">Utils</span>.json_load_file(file)
@@ -563,9 +575,9 @@ See <span class='object_link'><a href="../Extractor.html" title="TLSmap::App::Ex
 </div>
 
       <div id="footer">
-  Generated on Fri Jan  9 22:00:09 2026 by
+  Generated on Sat Sep  5 17:36:47 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-4.0.0).
+  0.9.45 (ruby-4.0.6).
 </div>
 
     </div>
