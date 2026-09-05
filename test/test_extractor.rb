@@ -22,10 +22,16 @@ class TLSmapExtractorTest < Minitest::Test
     # skip, done in setup
   end
 
-  def test_App_Extractor_sslyze
+  def test_App_Extractor_sslyze4
     ex = TLSmap::App::Extractor.new
-    assert(ex.parse('sslyze', 'test/file_sample/sslyze.json'))
+    assert(ex.parse('sslyze4', 'test/file_sample/sslyze_4.json'))
     assert_includes(ex.ciphers['TLS1.0'], 'TLS_RSA_WITH_CAMELLIA_256_CBC_SHA')
+  end
+
+  def test_App_Extractor_sslyze6
+    ex = TLSmap::App::Extractor.new
+    assert(ex.parse('sslyze6', 'test/file_sample/sslyze_6.json'))
+    assert_includes(ex.ciphers['TLS1.0'], 'TLS_RSA_WITH_AES_256_CBC_SHA')
   end
 
   def test_App_Extractor_sslscan2

@@ -107,7 +107,17 @@ See [Usage](/pages/usage#CLI) for other formats.
 ### Extract
 
 Extract ciphers from external tools output file.
-SSLyze, sslscan2, testssl.sh, ssllabs-scan, tlsx are supported, see the [library documentation](https://noraj.github.io/tls-map/yard/TLSmap/App/Extractor) for expected file format.
+
+[extraction-expected-file-format]:https://noraj.github.io/tls-map/yard/TLSmap/App/Extractor
+
+Tool         | Version   | tls-map extractor | expected file format
+-------------|-----------|-------------------|-------------------------------------------------------------
+SSLyze       | 4.x - 5.x | sslyze4           | see [library documentation][extraction-expected-file-format]
+SSLyze       | 6.x       | sslyze6           | see [library documentation][extraction-expected-file-format]
+sslscan2     | all       | sslscan2          | see [library documentation][extraction-expected-file-format]
+testssl.sh   | ???       | testssl           | see [library documentation][extraction-expected-file-format]
+ssllabs-scan | all       | ssllabs-scan      | see [library documentation][extraction-expected-file-format]
+tlsx         | all       | tlsx              | see [library documentation][extraction-expected-file-format]
 
 ```
 $ tls-map extract newwebsite.json ssllabs-scan
@@ -154,7 +164,7 @@ TLS1.3 TLS_AES_128_GCM_SHA256
 Show only weak cipher suites while extracting:
 
 ```
-$ tls-map extract test/file_sample/sslyze.json sslyze --only-weak
+$ tls-map extract test/file_sample/sslyze_4.json sslyze4 --only-weak
 TLS1.0 TLS_RSA_WITH_SEED_CBC_SHA
 TLS1.0 TLS_RSA_WITH_CAMELLIA_256_CBC_SHA
 TLS1.0 TLS_RSA_WITH_CAMELLIA_128_CBC_SHA

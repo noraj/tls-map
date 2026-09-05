@@ -77,7 +77,7 @@ module TLSmap
       end
 
       # Extract the ciphers from the tool output file
-      # @param tool [String] Possible values: `sslyze`, `sslscan2`, `testssl`, `ssllabs-scan`, `tlsx`
+      # @param tool [String] Possible values: `sslyze4`, `sslyze6` `sslscan2`, `testssl`, `ssllabs-scan`, `tlsx`
       # @param file [String] Path of the tool output file, beware of the format expected. See {TLSmap::App::Extractor}
       # @return [Array<String>] Cipher array (IANA names)
       def parse(tool, file)
@@ -89,7 +89,8 @@ module TLSmap
 
       # Commands for {helper}
       CMD = {
-        'sslyze' => 'sslyze --json_out=example.org.json example.org',
+        'sslyze4' => 'sslyze --json_out=example.org.json example.org',
+        'sslyze6' => 'sslyze --json_out=example.org.json example.org',
         'sslscan2' => 'sslscan2 --show-cipher-ids --xml=example.org.xml example.org',
         'testssl' => 'testssl --jsonfile-pretty example.org.json --mapping no-openssl --cipher-per-proto example.org',
         'ssllabs-scan' => 'ssllabs-scan --quiet example.org > example.org.json',
@@ -97,7 +98,7 @@ module TLSmap
       }.freeze
 
       # Get the external tool command used to generate the expected result format
-      # @param tool [String] Possible values: `sslyze`, `sslscan2`, `testssl`, `ssllabs-scan`, `tlsx`
+      # @param tool [String] Possible values: `sslyze4`, `sslyze6`, `sslscan2`, `testssl`, `ssllabs-scan`, `tlsx`
       # @return [String] external tool command used to generate the expected result format used in input of the extract
       #   command (CLI) / {parse} method (library)
       def helper(tool)
@@ -114,8 +115,8 @@ module TLSmap
       protected :normalize, :helper
       private_constant :CMD
 
-      # Parsing SSLyze
-      class Sslyze
+      # Parsing SSLyze 4.x - 5.x
+      class Sslyze4
         class << self
           # Extract the ciphers from the sslyze output file
           # @param file [String] Path of the sslyze output file, beware of the format expected.
@@ -138,6 +139,38 @@ module TLSmap
               'TLS1.1' => ciphers['tls_1_1_cipher_suites']['accepted_cipher_suites'],
               'TLS1.2' => ciphers['tls_1_2_cipher_suites']['accepted_cipher_suites'],
               'TLS1.3' => ciphers['tls_1_3_cipher_suites']['accepted_cipher_suites']
+            }
+            raw.transform_values { |v| v.empty? ? v : v.map { |x| x['cipher_suite']['name'] } }
+          end
+
+          protected :extract_cipher
+        end
+      end
+
+      # Parsing SSLyze 6.x
+      class Sslyze6
+        class << self
+          # Extract the ciphers from the sslyze output file
+          # @param file [String] Path of the sslyze output file, beware of the format expected.
+          #   See {TLSmap::App::Extractor}
+          # @return [Array<String>] Cipher array (IANA names)
+          def parse(file)
+            data = Utils.json_load_file(file)
+            extract_cipher(data)
+          end
+
+          # Extract the ciphers from the sslyze output file
+          # @param json_data [Hash] Ruby hash of the parsed JSON
+          # @return [Array<String>] Cipher array (IANA names)
+          def extract_cipher(json_data)
+            ciphers = json_data['server_scan_results'][0]['scan_result']
+            raw = {
+              'SSL2.0' => ciphers['ssl_2_0_cipher_suites']['result']['accepted_cipher_suites'],
+              'SSL3.0' => ciphers['ssl_3_0_cipher_suites']['result']['accepted_cipher_suites'],
+              'TLS1.0' => ciphers['tls_1_0_cipher_suites']['result']['accepted_cipher_suites'],
+              'TLS1.1' => ciphers['tls_1_1_cipher_suites']['result']['accepted_cipher_suites'],
+              'TLS1.2' => ciphers['tls_1_2_cipher_suites']['result']['accepted_cipher_suites'],
+              'TLS1.3' => ciphers['tls_1_3_cipher_suites']['result']['accepted_cipher_suites']
             }
             raw.transform_values { |v| v.empty? ? v : v.map { |x| x['cipher_suite']['name'] } }
           end

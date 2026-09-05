@@ -4,6 +4,8 @@
   - Drop support for Ruby 3.2
     - Ruby 3.2 is ([EOL](https://www.ruby-lang.org/en/downloads/branches/))
     - parallel-2.1.0 requires ruby version >= 3.3
+- Fix:
+  - Fix sslyze extraction for version 6.1+ [#200](https://github.com/noraj/tls-map/issues/200)
 
 ## [3.2.0]
 
