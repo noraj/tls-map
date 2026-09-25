@@ -8,6 +8,10 @@ Starting from version 3.3.0, this project will adheres to [Break Versioning](htt
 
 ## [unreleased]
 
+### Updates
+
+- **Fixed** [JSON 3.x argument breaking change](https://github.com/ruby/json/issues/1078) introduced by [rubocop update](https://github.com/noraj/tls-map/pull/234) because [rubocop is explicitly requiring json (default gem) with lax version](https://github.com/rubocop/rubocop/issues/15752) and [dependabot](https://github.com/dependabot/dependabot-core/issues/7572) is not using [conservative update](https://github.com/dependabot/dependabot-core/issues/13664).
+
 ### Chores
 
 - **Changed** Dependencies update
