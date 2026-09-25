@@ -8,6 +8,7 @@ gemspec
 # Needed for the CLI only
 group :runtime, :cli do
   gem 'docopt', '~> 0.6' # for argument parsing
+  gem 'json', '>= 2.7.1', '< 4.0' # read JSON file and generate JSON output
   gem 'paint', '~> 2.3' # for colorized ouput
 end
 

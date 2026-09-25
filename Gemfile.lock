@@ -4,6 +4,7 @@ PATH
     tls-map (3.3.0)
       csv (~> 3.3)
       docopt (~> 0.6)
+      json (>= 2.7.1, < 4.0)
       paint (~> 2.2)
       rexml (~> 3.2)
 
@@ -91,6 +92,7 @@ DEPENDENCIES
   csv (~> 3.3)
   docopt (~> 0.6)
   irb
+  json (>= 2.7.1, < 4.0)
   logger
   minitest (~> 6.0)
   minitest-skip (~> 1.0)

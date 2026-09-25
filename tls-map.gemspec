@@ -35,6 +35,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency('csv', '~> 3.3') # parse and generate CSV
   s.add_runtime_dependency('docopt', '~> 0.6') # for argument parsing
+  s.add_runtime_dependency('json', '>= 2.7.1', '< 4.0') # read JSON file and generate JSON output
   s.add_runtime_dependency('paint', '~> 2.2') # for colorized output
   s.add_runtime_dependency('rexml', '~> 3.2') # XML parser
 end

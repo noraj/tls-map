@@ -16,6 +16,7 @@ Starting from version 3.3.0, this project will adheres to [Break Versioning](htt
 
 - **Changed** Dependencies update
 - **Changed** Data update
+- **Added** json to the list of runtime dependency even if it's a default gem to add version constrain
 
 ## [3.3.0](https://github.com/noraj/tls-map/releases/tag/v3.3.0) - 2026-09-05
 
