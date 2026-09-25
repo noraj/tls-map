@@ -18,11 +18,17 @@ module TLSmap
 
     # bring JSON.load_file before ruby 3.0.0
     # https://ruby-doc.org/stdlib-3.0.0/libdoc/json/rdoc/JSON.html#method-i-load_file
-    def self.json_load_file(filespec, opts = {})
+    def self.json_load_file(filespec, opts = {}) # rubocop:disable Metrics/MethodLength
       if RUBY_VERSION < '3.0.0'
         JSON.parse(File.read(filespec), opts)
       else
         JSON.load_file(filespec, opts)
+      end
+    rescue ArgumentError # json 3.X.X breaking change https://github.com/ruby/json/issues/1078
+      if RUBY_VERSION < '3.0.0'
+        JSON.parse(File.read(filespec), **opts)
+      else
+        JSON.load_file(filespec, **opts)
       end
     end
   end
