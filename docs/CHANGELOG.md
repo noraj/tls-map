@@ -16,7 +16,8 @@ Starting from version 3.3.0, this project will adheres to [Break Versioning](htt
 
 - **Changed** Dependencies update
 - **Changed** Data update
-- **Added** json to the list of runtime dependency even if it's a default gem to add version constrain
+- **Added** `json` to the list of runtime dependency even if it's a default gem to add version constrain
+- **Breaking change** - **Removed** `Utils.json_load_file` since haiti no longer supports Ruby < 3.3 and this wrapper was to bring compatibility to Ruby 2.X. As for json, 3.x need to be splatted but 2.x supports it too so no need for rescue either.
 
 ## [3.3.0](https://github.com/noraj/tls-map/releases/tag/v3.3.0) - 2026-09-05
 
