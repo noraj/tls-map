@@ -13,7 +13,7 @@ Starting from version 3.3.0, this project will adheres to [Break Versioning](htt
 - **Fixed** [JSON 3.x argument breaking change](https://github.com/ruby/json/issues/1078) introduced by [rubocop update](https://github.com/noraj/tls-map/pull/234) because [rubocop is explicitly requiring json (default gem) with lax version](https://github.com/rubocop/rubocop/issues/15752) and [dependabot](https://github.com/dependabot/dependabot-core/issues/7572) is not using [conservative update](https://github.com/dependabot/dependabot-core/issues/13664).
 - **Breaking change** - **Fixed** Extended mode in the `search` command incorrectly mapping CipherSuite.info technologies and vulnerabilities [#235](https://github.com/noraj/tls-map/issues/235)
   - To implement the correct behavior, `TLSmap::App:Extended::DICO` structure hash changed to use `:display` and `:model` values.
-  - Everything part of the code related to "tech" has been updated to use a patched index now concatenating the algorithm type in addition to the algorithm name. Example of method impacted: `@tech`, `parse_tech`, `find_vuln`.
+  - Everything part of the code related to "tech" has been updated to use a patched index now concatenating the algorithm type in addition to the algorithm name. Example of method impacted: `@tech`, `parse_tech`, `find_vuln` or `translate_acronym`.
 - **Changed** `TLSmap::App:Extended::parse_vuln` to also include the vulnerability name. This allow displaying it on the CLI and enhance the readability of the extended mode.
 
 ### Chores

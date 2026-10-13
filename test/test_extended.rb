@@ -29,13 +29,13 @@ class TLSmapExtendedTest < Minitest::Test
   end
 
   def test_App_Extended_translate_acronym
-    assert_equal('Rivest Shamir Adleman algorithm', @ext.translate_acronym('RSA'))
-    assert_equal('Digital Signature Standard', @ext.translate_acronym('DSS'))
+    assert_equal('Rivest Shamir Adleman algorithm', @ext.translate_acronym('AuthAlgorithmRSA'))
+    assert_equal('Digital Signature Standard', @ext.translate_acronym('AuthAlgorithmDSS'))
     assert_nil(@ext.translate_acronym('PPP'))
   end
 
   def test_App_Extended_find_vuln
-    data = @ext.find_vuln('MD5')
+    data = @ext.find_vuln('HashAlgorithmMD5')
     assert_instance_of(Array, data)
     assert_instance_of(Hash, data[0])
     assert_instance_of(Integer, data[0][:severity])
