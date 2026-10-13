@@ -14,6 +14,7 @@ Starting from version 3.3.0, this project will adheres to [Break Versioning](htt
 - **Breaking change** - **Fixed** Extended mode in the `search` command incorrectly mapping CipherSuite.info technologies and vulnerabilities [#235](https://github.com/noraj/tls-map/issues/235)
   - To implement the correct behavior, `TLSmap::App:Extended::DICO` structure hash changed to use `:display` and `:model` values.
   - Everything part of the code related to "tech" has been updated to use a patched index now concatenating the algorithm type in addition to the algorithm name. Example of method impacted: `@tech`, `parse_tech`, `find_vuln`.
+- **Changed** `TLSmap::App:Extended::parse_vuln` to also include the vulnerability name. This allow displaying it on the CLI and enhance the readability of the extended mode.
 
 ### Chores
 

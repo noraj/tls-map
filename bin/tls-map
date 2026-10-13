@@ -80,8 +80,8 @@ begin
         when 'vulns'
           puts "#{Paint[dic[k][:display], :magenta]}:"
           v.each do |vuln|
-            # TODO
-            print "  - #{Paint[sev[vuln[:severity]][:title], sev[vuln[:severity]][:color]]} - "
+            print "  - #{Paint[vuln[:name], :magenta]} "
+            print "(#{Paint[sev[vuln[:severity]][:title], sev[vuln[:severity]][:color]]}): "
             puts Paint[vuln[:description], :white]
           end
         when 'tls_version'

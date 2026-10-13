@@ -106,7 +106,8 @@ module TLSmap
       # @param caching [Boolean] if true will fetch info for all cipher suites the 1st time and used the cached value
       #   for further requests
       # @return [Hash] Hash containing advanced information. The keys are the same as {DICO}. All values are string
-      #   except `vulns` which is an array of hashes containing two keys: `:severity` (integer) and `:description`
+      #   except `vulns` which is an array of hashes containing three keys: `:severity` (integer), `:name` and
+      #   `:description`.
       #   (string). Each hash in `vulns` correspond to a vulnerability.
       def extend(iana_name, caching = false) # rubocop:disable Metrics/MethodLength
         if caching
@@ -149,11 +150,13 @@ module TLSmap
       end
 
       # Extract data from the YAML file ({VULN_DATA}) to craft a simplified Ruby hash
+      # Note: also store name even if equal to key because find_vuln() will return only the value hash
       def parse_vuln
         data = Psych.load_file(@vuln_file)
         out = {}
         data.each do |item|
-          out.store(item['pk'], { severity: item['fields']['severity'],
+          out.store(item['pk'], { name: item['pk'],
+                                  severity: item['fields']['severity'],
                                   description: item['fields']['description'] })
         end
         out
