@@ -37,11 +37,12 @@ end
 
 group :development, :docs do
   gem 'commonmarker', '~> 2.10' # for markdown support in YARD
-  gem 'irb' # https://github.com/lsegal/yard/issues/1636
-  gem 'logger' # https://github.com/lsegal/yard/issues/1636
-  gem 'ostruct' # https://github.com/lsegal/yard/issues/1636
-  gem 'yard', ['>= 0.9.43', '< 0.10']
-  # https://github.com/lsegal/yard/issues/1528
-  # gem 'yard', github: 'ParadoxV5/yard', ref: '9e869c940859570b07b81c5eadd6070e76f6291e', branch: 'commonmarker-1.0'
+  gem 'yard', ['>= 0.9.45', '< 0.10']
   gem 'yard-coderay', '~> 0.1' # for syntax highlight support in YARD
+end
+
+group :development, :debug do
+  gem 'irb'
+  gem 'pry'
+  gem 'pry-rescue'
 end
