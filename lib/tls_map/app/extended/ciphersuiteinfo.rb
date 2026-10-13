@@ -17,7 +17,7 @@ module TLSmap
     # - https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md
     # - https://ciphersuite.info/api/
     # - https://github.com/hcrudolph/ciphersuite.info
-    class Extended
+    class Extended # rubocop:disable Metrics/ClassLength
       # Root URL of Cipher Suite Info
       ROOT = 'https://ciphersuite.info/'
       # Root URL of Cipher Suite Info API
@@ -26,17 +26,32 @@ module TLSmap
       VULN_DATA = 'https://raw.githubusercontent.com/hcrudolph/ciphersuite.info/master/directory/fixtures/00_vulnerabilities.yaml'
       # URL of the data file containing technologies information
       TECH_DATA = 'https://raw.githubusercontent.com/hcrudolph/ciphersuite.info/master/directory/fixtures/01_technologies.yaml'
-      # Hash mapping API key and display name for CLI
+      # Hash mapping API key and display name for CLI (`:display`) and model name in `01_technologies.yaml` (`:model`)
       DICO = {
-        'tls_version' => 'TLS Version(s)',
-        'protocol_version' => 'Protocol',
-        'kex_algorithm' => 'Key Exchange',
-        'auth_algorithm' => 'Authentication',
-        'enc_algorithm' => 'Encryption',
-        'hash_algorithm' => 'Hash',
-        'security' => 'Security',
-        'url' => 'More info',
-        'vulns' => 'Vulnerabilities'
+        'tls_version' => { display: 'TLS Version(s)' },
+        'protocol_version' => {
+          display: 'Protocol',
+          model: 'ProtocolVersion'
+        },
+        'kex_algorithm' => {
+          display: 'Key Exchange',
+          model: 'KexAlgorithm'
+        },
+        'auth_algorithm' => {
+          display: 'Authentication',
+          model: 'AuthAlgorithm'
+        },
+        'enc_algorithm' => {
+          display: 'Encryption',
+          model: 'EncAlgorithm'
+        },
+        'hash_algorithm' => {
+          display: 'Hash',
+          model: 'HashAlgorithm'
+        },
+        'security' => { display: 'Security' },
+        'url' => { display: 'More info' },
+        'vulns' => { display: 'Vulnerabilities' }
       }.freeze
       # Hash mapping the severity number used by the API and the severity text and color for the CLI
       VULN_SEVERITY = {
@@ -107,8 +122,12 @@ module TLSmap
         %w[openssl_name gnutls_name hex_byte_1 hex_byte_2].each do |key|
           out.delete(key)
         end
-        out.each_value do |v|
-          out['vulns'].push(find_vuln(v)) if @tech.keys.include?(v)
+        out.each do |k, v|
+          # '' fallback since out is not containing only algorithms
+          # else calling `:model` in DICO will return nil and make the concatenation fail
+          # this handling is more explicit that using interpolation that will silently handle nil
+          alg_index = DICO[k][:model] ? DICO[k][:model] + v : ''
+          out['vulns'].push(find_vuln(alg_index)) if @tech.keys.include?(alg_index)
         end
         out['vulns'].flatten!
         out['vulns'].uniq!
@@ -116,13 +135,15 @@ module TLSmap
         out
       end
 
-      # Extract data from the YAML file ({TECH_DATA}) to craft a simplified Ruby hash
+      # Extract data from the YAML file ({TECH_DATA}) to craft a simplified Ruby hash.
+      # Note: The index key changed in 3.4.0.
       def parse_tech
         data = Psych.load_file(@tech_file)
         out = {}
         data.each do |item|
-          out.store(item['pk'], { long_name: item['fields']['long_name'],
-                                  vulnerabilities: item['fields']['vulnerabilities'] })
+          index_key = item['model'].delete_prefix('directory.') + item['pk']
+          out.store(index_key, { long_name: item['fields']['long_name'],
+                                 vulnerabilities: item['fields']['vulnerabilities'] })
         end
         out
       end
@@ -139,7 +160,8 @@ module TLSmap
       end
 
       # Translate cipher related acronyms
-      # @param term [String] Acronym, eg. DSS
+      # @param term [String] Acronym, eg. DSS and algorithm type. Based on `01_technologies.yaml`,
+      #   this would be the last part of `model` + `pk`. The model value is mapped in {DICO} under the `:model` sub-key.
       # @return [String] The long name of the acronym, eg. Digital Signature Standard or `nil` if it's not found
       def translate_acronym(term)
         return @tech[term][:long_name] unless @tech[term].nil?
@@ -148,7 +170,8 @@ module TLSmap
       end
 
       # Find vulnerabilities related to a technology
-      # @param tech [String] The technology acronym, eg. CBC
+      # @param tech [String] The technology acronym, eg. CBC and algorithm type. Based on `01_technologies.yaml`,
+      #   this would be the last part of `model` + `pk`. The model value is mapped in {DICO} under the `:model` sub-key.
       # @return [Array<Hash>] Array of vulnerabilities as described for {extend} return value in the `vulns` key.
       def find_vuln(tech)
         return @tech[tech][:vulnerabilities].map { |vuln| @vuln[vuln] } unless @tech[tech][:vulnerabilities].nil?

@@ -11,6 +11,9 @@ Starting from version 3.3.0, this project will adheres to [Break Versioning](htt
 ### Updates
 
 - **Fixed** [JSON 3.x argument breaking change](https://github.com/ruby/json/issues/1078) introduced by [rubocop update](https://github.com/noraj/tls-map/pull/234) because [rubocop is explicitly requiring json (default gem) with lax version](https://github.com/rubocop/rubocop/issues/15752) and [dependabot](https://github.com/dependabot/dependabot-core/issues/7572) is not using [conservative update](https://github.com/dependabot/dependabot-core/issues/13664).
+- **Breaking change** - **Fixed** Extended mode in the `search` command incorrectly mapping CipherSuite.info technologies and vulnerabilities [#235](https://github.com/noraj/tls-map/issues/235)
+  - To implement the correct behavior, `TLSmap::App:Extended::DICO` structure hash changed to use `:display` and `:model` values.
+  - Everything part of the code related to "tech" has been updated to use a patched index now concatenating the algorithm type in addition to the algorithm name. Example of method impacted: `@tech`, `parse_tech`, `find_vuln`.
 
 ### Chores
 
@@ -18,6 +21,8 @@ Starting from version 3.3.0, this project will adheres to [Break Versioning](htt
 - **Changed** Data update
 - **Added** `json` to the list of runtime dependency even if it's a default gem to add version constrain
 - **Breaking change** - **Removed** `Utils.json_load_file` since haiti no longer supports Ruby < 3.3 and this wrapper was to bring compatibility to Ruby 2.X. As for json, 3.x need to be splatted but 2.x supports it too so no need for rescue either.
+- **Removed** fixes in Gemfile that are no longer required
+- **Added** new debugging gems in Gemfile
 
 ## [3.3.0](https://github.com/noraj/tls-map/releases/tag/v3.3.0) - 2026-09-05
 

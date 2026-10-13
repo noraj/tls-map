@@ -78,18 +78,20 @@ begin
       ext.each do |k, v|
         case k
         when 'vulns'
-          puts "#{Paint[dic[k], :magenta]}:"
+          puts "#{Paint[dic[k][:display], :magenta]}:"
           v.each do |vuln|
+            # TODO
             print "  - #{Paint[sev[vuln[:severity]][:title], sev[vuln[:severity]][:color]]} - "
             puts Paint[vuln[:description], :white]
           end
         when 'tls_version'
-          puts "#{Paint[dic[k], :magenta]}: #{Paint[v.join(', '), :white]}"
+          puts "#{Paint[dic[k][:display], :magenta]}: #{Paint[v.join(', '), :white]}"
         when 'security'
-          puts "#{Paint[dic[k], :magenta]}: #{Paint[v, sec_lvl[v][:color]]}"
+          puts "#{Paint[dic[k][:display], :magenta]}: #{Paint[v, sec_lvl[v][:color]]}"
         else
-          print "#{Paint[dic[k], :magenta]}: #{Paint[v, :white]}"
-          print " (#{tmext_i.translate_acronym(v)})" if args['--acronym'] && !tmext_i.translate_acronym(v).nil?
+          print "#{Paint[dic[k][:display], :magenta]}: #{Paint[v, :white]}"
+          term = dic[k][:model] ? dic[k][:model] + v : nil # rubocop:disable Metrics/BlockNesting
+          print " (#{tmext_i.translate_acronym(term)})" if args['--acronym'] && !tmext_i.translate_acronym(term).nil?
           puts
         end
       end
