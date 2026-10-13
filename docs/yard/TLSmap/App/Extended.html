@@ -195,7 +195,7 @@
         <dt id="DICO-constant" class="">DICO =
           <div class="docstring">
   <div class="discussion">
-    <p>Hash mapping API key and display name for CLI</p>
+    <p>Hash mapping API key and display name for CLI (<code>:display</code>) and model name in <code>01_technologies.yaml</code> (<code>:model</code>)</p>
 
 
   </div>
@@ -206,15 +206,30 @@
 </div>
         </dt>
         <dd><pre class="code">{
-  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">tls_version</span><span style="color:#710">'</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS Version(s)</span><span style="color:#710">'</span></span>,
-  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">protocol_version</span><span style="color:#710">'</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Protocol</span><span style="color:#710">'</span></span>,
-  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">kex_algorithm</span><span style="color:#710">'</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Key Exchange</span><span style="color:#710">'</span></span>,
-  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">auth_algorithm</span><span style="color:#710">'</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Authentication</span><span style="color:#710">'</span></span>,
-  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">enc_algorithm</span><span style="color:#710">'</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Encryption</span><span style="color:#710">'</span></span>,
-  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">hash_algorithm</span><span style="color:#710">'</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Hash</span><span style="color:#710">'</span></span>,
-  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">security</span><span style="color:#710">'</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Security</span><span style="color:#710">'</span></span>,
-  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">url</span><span style="color:#710">'</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">More info</span><span style="color:#710">'</span></span>,
-  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vulns</span><span style="color:#710">'</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Vulnerabilities</span><span style="color:#710">'</span></span>
+  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">tls_version</span><span style="color:#710">'</span></span> =&gt; { <span style="color:#606">display</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">TLS Version(s)</span><span style="color:#710">'</span></span> },
+  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">protocol_version</span><span style="color:#710">'</span></span> =&gt; {
+    <span style="color:#606">display</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Protocol</span><span style="color:#710">'</span></span>,
+    <span style="color:#606">model</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ProtocolVersion</span><span style="color:#710">'</span></span>
+  },
+  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">kex_algorithm</span><span style="color:#710">'</span></span> =&gt; {
+    <span style="color:#606">display</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Key Exchange</span><span style="color:#710">'</span></span>,
+    <span style="color:#606">model</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">KexAlgorithm</span><span style="color:#710">'</span></span>
+  },
+  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">auth_algorithm</span><span style="color:#710">'</span></span> =&gt; {
+    <span style="color:#606">display</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Authentication</span><span style="color:#710">'</span></span>,
+    <span style="color:#606">model</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">AuthAlgorithm</span><span style="color:#710">'</span></span>
+  },
+  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">enc_algorithm</span><span style="color:#710">'</span></span> =&gt; {
+    <span style="color:#606">display</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Encryption</span><span style="color:#710">'</span></span>,
+    <span style="color:#606">model</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">EncAlgorithm</span><span style="color:#710">'</span></span>
+  },
+  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">hash_algorithm</span><span style="color:#710">'</span></span> =&gt; {
+    <span style="color:#606">display</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Hash</span><span style="color:#710">'</span></span>,
+    <span style="color:#606">model</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">HashAlgorithm</span><span style="color:#710">'</span></span>
+  },
+  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">security</span><span style="color:#710">'</span></span> =&gt; { <span style="color:#606">display</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Security</span><span style="color:#710">'</span></span> },
+  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">url</span><span style="color:#710">'</span></span> =&gt; { <span style="color:#606">display</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">More info</span><span style="color:#710">'</span></span> },
+  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vulns</span><span style="color:#710">'</span></span> =&gt; { <span style="color:#606">display</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Vulnerabilities</span><span style="color:#710">'</span></span> }
 }.freeze</pre></dd>
       
         <dt id="VULN_SEVERITY-constant" class="">VULN_SEVERITY =
@@ -455,17 +470,17 @@
       <pre class="lines">
 
 
-60
-61
-62
-63
-64
-65
-66
-67</pre>
+75
+76
+77
+78
+79
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extended/ciphersuiteinfo.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extended/ciphersuiteinfo.rb', line 75</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">initialize</span>
   <span style="color:#33B">@tech_file</span> = <span style="color:#036;font-weight:bold">Utils</span>.tmpfile(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">tech</span><span style="color:#710">'</span></span>, <span style="color:#036;font-weight:bold">TECH_DATA</span>)
@@ -529,12 +544,12 @@
       <pre class="lines">
 
 
-57
-58
-59</pre>
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extended/ciphersuiteinfo.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extended/ciphersuiteinfo.rb', line 72</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">enhanced_data</span>
   <span style="color:#33B">@enhanced_data</span>
@@ -578,17 +593,17 @@ The data will be available through <span class='object_link'><a href="#enhanced_
       <pre class="lines">
 
 
-79
-80
-81
-82
-83
-84
-85
-86</pre>
+94
+95
+96
+97
+98
+99
+100
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extended/ciphersuiteinfo.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extended/ciphersuiteinfo.rb', line 94</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">enhance_all</span>
   fetch_ciphersuite
@@ -671,7 +686,8 @@ for further requests</p>
       
         &mdash;
         <div class='inline'><p>Hash containing advanced information. The keys are the same as <span class='object_link'><a href="#DICO-constant" title="TLSmap::App::Extended::DICO (constant)">DICO</a></span>. All values are string<br />
-except <code>vulns</code> which is an array of hashes containing two keys: <code>:severity</code> (integer) and <code>:description</code><br />
+except <code>vulns</code> which is an array of hashes containing three keys: <code>:severity</code> (integer), <code>:name</code> and<br />
+<code>:description</code>.<br />
 (string). Each hash in <code>vulns</code> correspond to a vulnerability.</p>
 </div>
       
@@ -685,31 +701,35 @@ except <code>vulns</code> which is an array of hashes containing two keys: <code
       <pre class="lines">
 
 
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
 112
 113
 114
 115
 116
-117</pre>
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extended/ciphersuiteinfo.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extended/ciphersuiteinfo.rb', line 112</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">extend</span>(iana_name, caching = <span style="color:#069">false</span>) <span style="color:#777"># rubocop:disable Metrics/MethodLength</span>
   <span style="color:#080;font-weight:bold">if</span> caching
@@ -725,8 +745,12 @@ except <code>vulns</code> which is an array of hashes containing two keys: <code
   <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%w[</span><span style="color:#D20">openssl_name gnutls_name hex_byte_1 hex_byte_2</span><span style="color:#710">]</span></span>.each <span style="color:#080;font-weight:bold">do</span> |key|
     out.delete(key)
   <span style="color:#080;font-weight:bold">end</span>
-  out.each_value <span style="color:#080;font-weight:bold">do</span> |v|
-    out[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vulns</span><span style="color:#710">'</span></span>].push(find_vuln(v)) <span style="color:#080;font-weight:bold">if</span> <span style="color:#33B">@tech</span>.keys.include?(v)
+  out.each <span style="color:#080;font-weight:bold">do</span> |k, v|
+    <span style="color:#777"># '' fallback since out is not containing only algorithms</span>
+    <span style="color:#777"># else calling `:model` in DICO will return nil and make the concatenation fail</span>
+    <span style="color:#777"># this handling is more explicit that using interpolation that will silently handle nil</span>
+    alg_index = <span style="color:#036;font-weight:bold">DICO</span>[k][<span style="color:#A60">:model</span>] ? <span style="color:#036;font-weight:bold">DICO</span>[k][<span style="color:#A60">:model</span>] + v : <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#710">'</span></span>
+    out[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vulns</span><span style="color:#710">'</span></span>].push(find_vuln(alg_index)) <span style="color:#080;font-weight:bold">if</span> <span style="color:#33B">@tech</span>.keys.include?(alg_index)
   <span style="color:#080;font-weight:bold">end</span>
   out[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vulns</span><span style="color:#710">'</span></span>].flatten!
   out[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vulns</span><span style="color:#710">'</span></span>].uniq!
@@ -768,7 +792,8 @@ except <code>vulns</code> which is an array of hashes containing two keys: <code
       
       
         &mdash;
-        <div class='inline'><p>The technology acronym, eg. CBC</p>
+        <div class='inline'><p>The technology acronym, eg. CBC and algorithm type. Based on <code>01_technologies.yaml</code>,<br />
+this would be the last part of <code>model</code> + <code>pk</code>. The model value is mapped in <span class='object_link'><a href="#DICO-constant" title="TLSmap::App::Extended::DICO (constant)">DICO</a></span> under the <code>:model</code> sub-key.</p>
 </div>
       
     </li>
@@ -799,14 +824,14 @@ except <code>vulns</code> which is an array of hashes containing two keys: <code
       <pre class="lines">
 
 
-153
-154
-155
-156
-157</pre>
+179
+180
+181
+182
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extended/ciphersuiteinfo.rb', line 153</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extended/ciphersuiteinfo.rb', line 179</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">find_vuln</span>(tech)
   <span style="color:#080;font-weight:bold">return</span> <span style="color:#33B">@tech</span>[tech][<span style="color:#A60">:vulnerabilities</span>].map { |vuln| <span style="color:#33B">@vuln</span>[vuln] } <span style="color:#080;font-weight:bold">unless</span> <span style="color:#33B">@tech</span>[tech][<span style="color:#A60">:vulnerabilities</span>].nil?
@@ -848,7 +873,8 @@ except <code>vulns</code> which is an array of hashes containing two keys: <code
       
       
         &mdash;
-        <div class='inline'><p>Acronym, eg. DSS</p>
+        <div class='inline'><p>Acronym, eg. DSS and algorithm type. Based on <code>01_technologies.yaml</code>,<br />
+this would be the last part of <code>model</code> + <code>pk</code>. The model value is mapped in <span class='object_link'><a href="#DICO-constant" title="TLSmap::App::Extended::DICO (constant)">DICO</a></span> under the <code>:model</code> sub-key.</p>
 </div>
       
     </li>
@@ -879,14 +905,14 @@ except <code>vulns</code> which is an array of hashes containing two keys: <code
       <pre class="lines">
 
 
-144
-145
-146
-147
-148</pre>
+169
+170
+171
+172
+173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extended/ciphersuiteinfo.rb', line 144</span>
+      <pre class="code"><span class="info file"># File 'lib/tls_map/app/extended/ciphersuiteinfo.rb', line 169</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">translate_acronym</span>(term)
   <span style="color:#080;font-weight:bold">return</span> <span style="color:#33B">@tech</span>[term][<span style="color:#A60">:long_name</span>] <span style="color:#080;font-weight:bold">unless</span> <span style="color:#33B">@tech</span>[term].nil?
@@ -903,7 +929,7 @@ except <code>vulns</code> which is an array of hashes containing two keys: <code
 </div>
 
       <div id="footer">
-  Generated on Sat Sep  5 17:36:47 2026 by
+  Generated on Wed Oct 14 00:19:51 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.45 (ruby-4.0.6).
 </div>

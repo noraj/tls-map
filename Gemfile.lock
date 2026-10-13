@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tls-map (3.3.0)
+    tls-map (3.4.0)
       csv (~> 3.3)
       docopt (~> 0.6)
       json (>= 2.7.1, < 4.0)

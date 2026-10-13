@@ -459,7 +459,7 @@ See <span class='object_link'><a href="../Extractor.html" title="TLSmap::App::Ex
       <pre class="code"><span class="info file"># File 'lib/tls_map/app/extractor/extractor.rb', line 323</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">parse</span>(file)
-  data = <span style="color:#036;font-weight:bold">Utils</span>.json_load_file(file)
+  data = <span style="color:#036;font-weight:bold">JSON</span>.load_file(file)
   extract_cipher(data)
 <span style="color:#080;font-weight:bold">end</span></pre>
     </td>
@@ -472,7 +472,7 @@ See <span class='object_link'><a href="../Extractor.html" title="TLSmap::App::Ex
 </div>
 
       <div id="footer">
-  Generated on Sat Sep  5 17:36:47 2026 by
+  Generated on Wed Oct 14 00:19:51 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.45 (ruby-4.0.6).
 </div>
