@@ -37,7 +37,7 @@ GEM
       minitest (~> 6.0)
     paint (2.3.0)
     parallel (2.3.0)
-    parser (3.3.12.0)
+    parser (3.3.13.0)
       ast (~> 2.4.1)
       racc
     pp (0.6.4)
@@ -67,7 +67,7 @@ GEM
     reline (0.7.0)
       io-console (~> 0.5)
     rexml (3.4.4)
-    rubocop (1.92.0)
+    rubocop (1.92.1)
       json (>= 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -108,7 +108,7 @@ DEPENDENCIES
   pry-rescue
   rake (~> 13.4)
   rexml (~> 3.4)
-  rubocop (~> 1.91)
+  rubocop (~> 1.92)
   tls-map!
   yard (>= 0.9.45, < 0.10)
   yard-coderay (~> 0.1)
