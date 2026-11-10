@@ -30,9 +30,9 @@ GEM
     lint_roller (1.1.0)
     logger (1.7.0)
     method_source (1.1.0)
-    minitest (6.0.6)
+    minitest (6.1.0)
       drb (~> 2.0)
-      prism (~> 1.5)
+      prism (>= 1.5, < 3)
     minitest-skip (1.0.0)
       minitest (~> 6.0)
     paint (2.3.0)
@@ -101,7 +101,7 @@ DEPENDENCIES
   docopt (~> 0.6)
   irb
   json (>= 2.7.1, < 4.0)
-  minitest (~> 6.0)
+  minitest (~> 6.1)
   minitest-skip (~> 1.0)
   paint (~> 2.3)
   pry
